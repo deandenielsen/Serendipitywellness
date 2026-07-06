@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     default: `${siteConfig.name} | Yoga, Massage & Wellness in Edgemead, Cape Town`,
     template: `%s | ${siteConfig.name}`,
   },
-  description: siteConfig.description,
+  description: siteConfig.seoDescription,
   keywords: [
     "yoga",
     "yoga studio",
@@ -48,12 +48,12 @@ export const metadata: Metadata = {
     url: siteConfig.url,
     siteName: siteConfig.name,
     title: `${siteConfig.name} | Yoga, Massage & Wellness in Edgemead, Cape Town`,
-    description: siteConfig.description,
+    description: siteConfig.seoDescription,
   },
   twitter: {
     card: "summary_large_image",
     title: `${siteConfig.name} | Yoga, Massage & Wellness in Edgemead, Cape Town`,
-    description: siteConfig.description,
+    description: siteConfig.seoDescription,
   },
   robots: {
     index: true,
@@ -70,7 +70,7 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "HealthAndBeautyBusiness",
     name: siteConfig.name,
-    description: siteConfig.description,
+    description: siteConfig.seoDescription,
     url: siteConfig.url,
     address: {
       "@type": "PostalAddress",

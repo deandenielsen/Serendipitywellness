@@ -1,4 +1,3 @@
-import type { LucideIcon } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { ImagePlaceholder } from "@/components/image-placeholder";
 import { Reveal } from "@/components/motion/reveal";
@@ -9,16 +8,14 @@ function SplitSection({
   eyebrow,
   title,
   paragraphs,
-  icon,
   imageLabel,
   reverse = false,
   tinted = false,
 }: {
-  id: string;
+  id?: string;
   eyebrow: string;
   title: string;
   paragraphs: string[];
-  icon: LucideIcon;
   imageLabel: string;
   reverse?: boolean;
   tinted?: boolean;
@@ -26,24 +23,15 @@ function SplitSection({
   return (
     <section
       id={id}
-      className={cn("py-20 md:py-28 scroll-mt-20", tinted && "bg-secondary/40")}
+      className={cn("py-20 md:py-[120px] scroll-mt-24", tinted && "bg-secondary/40")}
     >
-      <Container className="grid items-center gap-14 md:grid-cols-2 md:gap-16">
-        <Reveal className={cn("relative", reverse && "md:order-2")}>
-          <div
-            aria-hidden
-            className={cn(
-              "absolute -z-10 aspect-4/5 w-full max-w-[85%] rounded-app bg-surface",
-              reverse
-                ? "-right-4 -bottom-4 md:-right-6 md:-bottom-6"
-                : "-left-4 -bottom-4 md:-left-6 md:-bottom-6"
-            )}
-          />
-          <ImagePlaceholder icon={icon} label={imageLabel} />
+      <Container className="grid items-center gap-14 md:grid-cols-2 md:gap-[68px]">
+        <Reveal className={cn(reverse && "md:order-2")}>
+          <ImagePlaceholder label={imageLabel} className="aspect-5/6" />
         </Reveal>
 
         <Reveal delay={0.1} className={cn(reverse && "md:order-1")}>
-          <span className="text-eyebrow font-medium uppercase tracking-[0.08em] text-primary-strong">
+          <span className="text-eyebrow font-medium uppercase tracking-[0.18em] text-primary-strong">
             {eyebrow}
           </span>
           <h2 className="mt-4 text-h2 font-semibold text-copy">{title}</h2>

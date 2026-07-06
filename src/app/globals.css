@@ -1,15 +1,20 @@
 @import "tailwindcss";
 
 :root {
-  --color-primary: #91b5bc;
-  /* Darker primary for text/icons/buttons only — #91B5BC fails WCAG AA
-     as foreground (2.2:1 white-on-primary). Reserve raw --color-primary
+  /* Eucalyptus */
+  --color-primary: #b7c2b1;
+  /* Darker primary for text/icons/buttons only — #B7C2B1 fails WCAG AA
+     as foreground (1.85:1 white-on-primary). Reserve raw --color-primary
      for the logo mark and large decorative fills per design.md §2/§3. */
-  --color-primary-strong: #517c84;
-  --color-secondary: #cde7ea;
-  --color-copy: #4a5b5f;
-  --color-background: #f7f7f7;
-  --color-surface: #ffffff;
+  --color-primary-strong: #68795e;
+  /* Warm Beige */
+  --color-secondary: #e9e2d5;
+  /* Soft Charcoal */
+  --color-copy: #4b5a52;
+  /* Milky White */
+  --color-background: #fefcff;
+  /* Warm Beige (cards lift via shadow, not colour, on this page) */
+  --color-surface: #e9e2d5;
 
   --radius-app: 10px;
 

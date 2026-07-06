@@ -1,31 +1,27 @@
-import type { LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 /**
  * Stand-in for real studio photography (post-shoot per design.md §6).
- * Matched loosely to each section's subject so structure/aspect ratios
- * are already correct when photos are swapped in.
+ * Matches the design handoff's placeholder treatment exactly: a warm
+ * diagonal-stripe swatch with a small monospace tag naming the shot.
  */
 function ImagePlaceholder({
-  icon: Icon,
   label,
   className,
 }: {
-  icon: LucideIcon;
   label: string;
   className?: string;
 }) {
   return (
     <div
       className={cn(
-        "relative flex aspect-4/5 w-full items-center justify-center overflow-hidden rounded-app bg-linear-to-br from-secondary via-secondary/60 to-surface",
+        "relative flex w-full items-center justify-center overflow-hidden rounded-app bg-[#ddd4c4] [background-image:repeating-linear-gradient(45deg,rgba(183,194,177,0.28)_0_12px,transparent_12px_24px)]",
         className
       )}
     >
-      <div className="flex flex-col items-center gap-3 text-primary-strong/80">
-        <Icon size={40} strokeWidth={1.25} />
-        <span className="text-small font-medium tracking-wide">{label}</span>
-      </div>
+      <span className="rounded-app bg-background/72 px-3.5 py-1.5 font-mono text-small text-[#8a9187]">
+        {label}
+      </span>
     </div>
   );
 }

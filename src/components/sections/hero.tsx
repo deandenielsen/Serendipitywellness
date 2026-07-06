@@ -1,63 +1,102 @@
+import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Leaf, MapPin } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/ui/container";
-import { Button } from "@/components/ui/button";
-import { ImagePlaceholder } from "@/components/image-placeholder";
-import { Reveal } from "@/components/motion/reveal";
+import { LogoWordmark } from "@/components/logo";
 import { siteConfig } from "@/lib/site-config";
+
+const TEXT_SHADOW_SM =
+  "0 0 3px rgba(254,252,255,0.9), 0 1px 14px rgba(254,252,255,0.85)";
+const TEXT_SHADOW_LG =
+  "0 0 5px rgba(254,252,255,0.9), 0 2px 22px rgba(254,252,255,0.85)";
 
 function Hero() {
   return (
-    <section className="pt-6 pb-20 md:pt-10 md:pb-28">
-      <Container>
-        <Reveal>
-          <span className="inline-flex items-center gap-2 rounded-app border border-copy/20 bg-surface px-4 py-2 text-eyebrow font-medium uppercase tracking-[0.08em] text-copy">
-            <MapPin size={14} className="text-primary-strong" />
-            Edgemead, Cape Town
-          </span>
-        </Reveal>
-
-        <Reveal delay={0.1} className="mt-4">
-          <div className="relative min-h-[680px] overflow-hidden rounded-app sm:min-h-[620px] md:min-h-[calc(100vh-14rem)]">
-            <ImagePlaceholder
-              icon={Leaf}
-              label="Studio & practice"
-              className="absolute inset-0 aspect-auto h-full"
+    <section className="pb-24 md:pb-32">
+      <Container size="wide">
+        <div className="relative">
+          <div
+            className="relative w-full overflow-hidden rounded-app"
+            style={{ height: "min(74vh, 660px)", minHeight: 460 }}
+          >
+            <Image
+              src="/hero.jpg"
+              alt="Sunlit yoga studio with warm timber floors, a rolled mat and props, and floor-to-ceiling glass onto greenery"
+              fill
+              priority
+              sizes="(min-width: 1320px) 1320px, 100vw"
+              style={{ objectFit: "cover", objectPosition: "center 42%" }}
             />
+          </div>
 
-            {/* Scrim keeps the overlaid copy legible once real photography lands */}
-            <div
-              aria-hidden
-              className="absolute inset-x-0 bottom-0 h-3/4 bg-linear-to-t from-background via-background/70 to-transparent"
-            />
-
-            <div className="absolute inset-x-0 bottom-0 flex flex-col gap-8 p-6 sm:p-10 md:flex-row md:items-end md:justify-between md:gap-12 md:p-14">
-              <div className="max-w-2xl">
-                <h1 className="text-h1 font-semibold text-copy">
-                  A Space to Reconnect, Restore &amp; Thrive
-                </h1>
-                <p className="mt-5 max-w-xl text-body text-copy/90">
-                  At Serendipity Wellness, we believe true wellness comes
-                  from nurturing both the body and the mind. In today&rsquo;s
-                  fast-paced world, taking time to slow down, reconnect and
-                  restore has never been more important.
-                </p>
+          {/* centered hero copy, overlaid on the image */}
+          <div className="pointer-events-none absolute inset-0 z-1 flex flex-col items-center justify-center px-6 py-12 text-center">
+            <div className="w-full max-w-[780px]">
+              <div
+                className="mb-5 whitespace-normal text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-copy sm:text-small sm:tracking-[0.2em]"
+                style={{ textShadow: TEXT_SHADOW_SM }}
+              >
+                {siteConfig.heroEyebrow}
               </div>
-
-              <div className="flex shrink-0 flex-wrap items-center gap-4">
-                <Button asChild variant="ghost" className="bg-surface/80">
-                  <Link href="#services">Explore Our Services</Link>
-                </Button>
-                <Button asChild>
-                  <Link href={siteConfig.ctaHref}>
-                    {siteConfig.ctaLabel}
-                    <ArrowRight size={16} />
-                  </Link>
-                </Button>
-              </div>
+              <h1
+                className="text-h1 font-semibold tracking-[-0.01em] text-copy"
+                style={{ lineHeight: 1.05, textShadow: TEXT_SHADOW_LG }}
+              >
+                {siteConfig.tagline}
+              </h1>
             </div>
           </div>
-        </Reveal>
+
+          {/* top-left niche: wordmark, cut into the image corner */}
+          <div className="absolute left-0 top-0 z-2 rounded-br-2xl bg-background py-0 pb-[22px] pr-6">
+            <div className="flex items-center px-1.5 pt-3.5">
+              <LogoWordmark />
+            </div>
+            <span
+              aria-hidden
+              className="absolute left-full top-0 h-4 w-4"
+              style={{
+                background:
+                  "radial-gradient(circle at bottom right, transparent 16px, var(--color-background) 16px)",
+              }}
+            />
+            <span
+              aria-hidden
+              className="absolute left-0 top-full h-4 w-4"
+              style={{
+                background:
+                  "radial-gradient(circle at bottom right, transparent 16px, var(--color-background) 16px)",
+              }}
+            />
+          </div>
+
+          {/* bottom-right niche: Book a Class, cut into the image corner */}
+          <div className="absolute bottom-0 right-0 z-2 rounded-tl-2xl bg-background py-0 pl-5 pt-5">
+            <Link
+              href={siteConfig.bookCtaHref}
+              className="inline-flex items-center gap-3 rounded-app bg-primary-strong px-6 py-4 text-small font-medium tracking-[0.04em] text-white transition-colors hover:bg-primary-strong/90"
+            >
+              {siteConfig.bookCtaLabel}
+              <ArrowRight size={17} />
+            </Link>
+            <span
+              aria-hidden
+              className="absolute bottom-0 right-full h-4 w-4"
+              style={{
+                background:
+                  "radial-gradient(circle at top left, transparent 16px, var(--color-background) 16px)",
+              }}
+            />
+            <span
+              aria-hidden
+              className="absolute bottom-full right-0 h-4 w-4"
+              style={{
+                background:
+                  "radial-gradient(circle at top left, transparent 16px, var(--color-background) 16px)",
+              }}
+            />
+          </div>
+        </div>
       </Container>
     </section>
   );
