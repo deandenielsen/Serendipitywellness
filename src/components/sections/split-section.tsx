@@ -29,7 +29,16 @@ function SplitSection({
       className={cn("py-20 md:py-28 scroll-mt-20", tinted && "bg-secondary/40")}
     >
       <Container className="grid items-center gap-14 md:grid-cols-2 md:gap-16">
-        <Reveal className={cn(reverse && "md:order-2")}>
+        <Reveal className={cn("relative", reverse && "md:order-2")}>
+          <div
+            aria-hidden
+            className={cn(
+              "absolute -z-10 aspect-4/5 w-full max-w-[85%] rounded-app bg-surface",
+              reverse
+                ? "-right-4 -bottom-4 md:-right-6 md:-bottom-6"
+                : "-left-4 -bottom-4 md:-left-6 md:-bottom-6"
+            )}
+          />
           <ImagePlaceholder icon={icon} label={imageLabel} />
         </Reveal>
 
