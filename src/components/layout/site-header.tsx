@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
@@ -158,10 +159,21 @@ function SiteHeader() {
 
 /** Nav link with the underline that grows in from the left on hover. */
 function NavLink({ href, children }: { href: string; children: React.ReactNode }) {
+  const active = usePathname() === href;
   return (
-    <Link prefetch={false} href={href} className="group relative py-3 opacity-90 transition-opacity hover:opacity-100">
+    <Link
+      prefetch={false}
+      href={href}
+      aria-current={active ? "page" : undefined}
+      className="group relative py-3 opacity-90 transition-opacity hover:opacity-100"
+    >
       {children}
-      <span className="absolute bottom-2 left-0 h-px w-full origin-left scale-x-0 bg-current transition-transform duration-300 ease-out group-hover:scale-x-100" />
+      <span
+        className={cn(
+          "absolute bottom-2 left-0 h-px w-full origin-left bg-current transition-transform duration-300 ease-out group-hover:scale-x-100",
+          active ? "scale-x-100" : "scale-x-0",
+        )}
+      />
     </Link>
   );
 }

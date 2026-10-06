@@ -23,6 +23,7 @@ export const siteConfig = {
     whatsappHref: "https://wa.me/27790856100",
     email: "info@serendipitywellness.co.za",
   },
+  bookingHref: "https://booking.serendipitywellness.co.za/",
   social: {
     facebook: "https://www.facebook.com/serendipitywellnesscpt",
     instagram: "https://www.instagram.com/serendipitywellnesscpt/",

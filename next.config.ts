@@ -1,7 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // Match the WordPress URL style (/yoga/) so existing Google rankings and links carry over.
+  trailingSlash: true,
 };
 
 export default nextConfig;

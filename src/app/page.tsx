@@ -47,7 +47,7 @@ export default function Home() {
         heading="A quiet, intimate yoga studio based in Edgemead"
         paragraphs={[
           "Our yoga studio is a home based studio in the quiet suburb of Edgemead, Northern Suburbs, Cape Town.",
-          "Our space can accommodate a max of 8 students per yoga class, allowing for a more personal experience.",
+          "Our space can accommodate a max of 5 students per yoga class, allowing for a more personal experience.",
         ]}
         large={groupClass}
         small={{ src: "/images/Untitled-design.jpeg", alt: "Student resting in savasana on a yoga mat" }}
