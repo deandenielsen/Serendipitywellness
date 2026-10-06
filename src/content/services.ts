@@ -53,7 +53,7 @@ export const services: Service[] = [
     title: "Yoga",
     seoTitle: "Yoga Classes in Edgemead, Cape Town | Hatha, Yin & Kids Yoga",
     seoDescription:
-      "Small-group Hatha, Yin and Kids yoga classes in a quiet home studio in Edgemead, Northern Suburbs, Cape Town. Personal attention for beginners and experienced students.",
+      "Small-group Hatha, Yin and Kids yoga (ages 4–12) classes in a quiet home studio in Edgemead, Northern Suburbs, Cape Town. Personal attention for beginners and experienced students.",
     serviceType: "Yoga classes",
     hero: { src: `${S}/yoga-hero.jpeg`, alt: "Yoga students resting in child's pose during a class" },
     intro: {
@@ -108,7 +108,7 @@ export const services: Service[] = [
         id: "kids-yoga",
         name: "Kids Yoga",
         paragraphs: [
-          "This is a fun and interactive class. There is no right and wrong, no dos and don'ts. It's a time and space for children to just be themselves.",
+          "Kids Yoga is for children aged 4 to 12. This is a fun and interactive class. There is no right and wrong, no dos and don'ts. It's a time and space for children to just be themselves.",
           "In these classes we focus on core strengthening, crossing the midline, stretching and movement of muscles.",
           "Children learn the life skill of managing their emotions and feelings, creating well-balanced, mindful little humans.",
           "The classes are designed around poses, singing, art and mindfulness or quiet time.",
@@ -148,7 +148,7 @@ export const services: Service[] = [
       {
         question: "Do you offer yoga classes for children?",
         answer:
-          "Yes. Our Kids Yoga classes combine poses, singing, art and mindfulness to build core strength, coordination and emotional awareness in a fun, no-pressure setting. Contact us to find out more.",
+          "Yes. Kids Yoga is for children aged 4 to 12. Classes combine poses, singing, art and mindfulness to build core strength, coordination and emotional awareness in a fun, no-pressure setting. Contact us to find out more.",
       },
     ],
     related: ["rehabilitation-yoga", "pre-post-natal-yoga", "mindfulness-meditation"],

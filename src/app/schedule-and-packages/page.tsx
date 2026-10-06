@@ -159,7 +159,7 @@ export default function SchedulePage() {
       <Feature image={{ src: `${IMG}/kids-teen-yoga.jpg`, alt: "Mother and daughter doing yoga together" }} imageSide="left" id="kids-teens">
         <Heading script="Kids & Teens" />
         <p className="mt-5 text-[15px] leading-[1.7]">
-          We offer Kids Yoga, Mindfulness &amp; Art classes as well as Teen Stress Management classes.
+          We offer Kids Yoga, Mindfulness &amp; Art classes for ages 4 to 12, as well as Teen Stress Management classes.
         </p>
         <div className="mt-8 grid grid-cols-2 gap-6">
           {kidsTeens.map((k) => (
