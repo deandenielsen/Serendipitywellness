@@ -112,6 +112,24 @@ function CtaCard({
   );
 }
 
+/** Outline pill linking to the online booking app. */
+function BookingButton({ className }: { className?: string }) {
+  return (
+    <a
+      href={siteConfig.bookingHref}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={cn(
+        "group inline-flex items-center gap-4 rounded-full border border-black/20 px-7 py-3 text-[15px] font-medium transition-colors hover:border-black",
+        className,
+      )}
+    >
+      <ArrowRight size={20} strokeWidth={1.25} className="transition-transform group-hover:translate-x-1" />
+      Check Availability
+    </a>
+  );
+}
+
 /** Treatment price list (massage). */
 function PriceList({ items }: { items: { label: string; price: number }[] }) {
   return (
@@ -120,15 +138,7 @@ function PriceList({ items }: { items: { label: string; price: number }[] }) {
         <div>
           <p className="text-[15px] font-medium uppercase tracking-[0.08em]">Treatments</p>
           <SplitReveal as="h2" text="Book your next treatment now" className="light-heading mt-4 max-w-[12em] text-[34px] lg:text-[2.6vw]" />
-          <a
-            href={siteConfig.bookingHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group mt-8 inline-flex items-center gap-4 rounded-full border border-black/20 px-7 py-3 text-[15px] font-medium transition-colors hover:border-black"
-          >
-            <ArrowRight size={20} strokeWidth={1.25} className="transition-transform group-hover:translate-x-1" />
-            Check Availability
-          </a>
+          <BookingButton className="mt-8" />
         </div>
         <dl className="divide-y divide-black/10">
           {items.map((item) => (
@@ -184,4 +194,4 @@ function FaqList({ faqs, heading = "Frequently asked questions" }: { faqs: Faq[]
   );
 }
 
-export { BenefitPair, SplitFeature, CtaCard, PriceList, ExpectBlock, FaqList };
+export { BenefitPair, BookingButton, SplitFeature, CtaCard, PriceList, ExpectBlock, FaqList };
