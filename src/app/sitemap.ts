@@ -12,5 +12,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       priority: 0.9,
     })),
+    { url: `${siteConfig.url}/schedule-and-packages/`, lastModified, changeFrequency: "weekly", priority: 0.9 },
   ];
 }
