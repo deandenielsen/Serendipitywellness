@@ -5,7 +5,10 @@ import { Expertise } from "@/components/sections/expertise";
 import { ScrollingText } from "@/components/sections/scrolling-text";
 import { WellbeingStatement } from "@/components/sections/wellbeing-statement";
 import { ParallaxBand } from "@/components/sections/parallax-band";
+import { SplitReveal } from "@/components/motion/split-reveal";
 import { siteConfig } from "@/lib/site-config";
+
+const { founder } = siteConfig;
 
 export const metadata: Metadata = {
   title: "Yoga, Massage & Mindfulness in Edgemead, Cape Town",
@@ -35,7 +38,19 @@ export default function Home() {
         ]}
         large={groupClass}
         small={seatedMeditation}
-      />
+      >
+        <div className="mt-10 border-t border-black/10 pt-8 lg:mt-[2.4vw] lg:pt-[2vw]">
+          <SplitReveal as="h4" text="Meet Kerry" className="script-heading text-[32px] lg:text-[2.2vw]" />
+          <SplitReveal
+            text={`Hi, I’m ${founder.name}, founder of Serendipity Wellness. I’m a 200hr qualified yoga teacher and 50hr qualified kids yoga teacher, and I specialise in therapeutic massage and reflexology. With ${founder.yearsExperience} years of experience and only five students per class, I can give everyone the attention they need, whatever their age or ability.`}
+            delay={0.1}
+            lineStagger={0.05}
+            duration={0.8}
+            className="mt-3 text-[15px] leading-[1.7] lg:text-[1.05vw]"
+          />
+          <p className="script-heading mt-4 text-[26px] lg:text-[1.8vw]">{founder.name}</p>
+        </div>
+      </FeatureCollage>
 
       <Expertise />
 
