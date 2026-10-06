@@ -40,6 +40,15 @@ function SiteFooter() {
             T: <a href={contact.phoneHref} className="hover:text-brand-teal">{contact.phone}</a>
             <br />
             E: <a href={`mailto:${contact.email}`} className="hover:text-brand-teal">{contact.email}</a>
+            <br />
+            <a
+              href={siteConfig.google.profileHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-brand-teal"
+            >
+              Find us on Google
+            </a>
           </p>
         </div>
       </div>

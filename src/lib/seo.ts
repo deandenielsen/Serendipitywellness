@@ -59,7 +59,13 @@ export function businessJsonLd() {
         email: siteConfig.contact.email,
         priceRange: "R",
         currenciesAccepted: "ZAR",
-        sameAs: [siteConfig.social.facebook, siteConfig.social.instagram],
+        sameAs: [
+          siteConfig.social.facebook,
+          siteConfig.social.instagram,
+          siteConfig.google.profileHref,
+          `https://www.google.com/search?kgmid=${siteConfig.google.kgmid}`,
+        ],
+        hasMap: `https://www.google.com/maps?kgmid=${siteConfig.google.kgmid}`,
         address: {
           "@type": "PostalAddress",
           addressLocality: siteConfig.location.suburb,
