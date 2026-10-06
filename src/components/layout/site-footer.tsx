@@ -49,6 +49,15 @@ function SiteFooter() {
             >
               Find us on Google
             </a>
+            {" · "}
+            <a
+              href={siteConfig.google.reviewHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-brand-teal"
+            >
+              Leave a review
+            </a>
           </p>
         </div>
       </div>

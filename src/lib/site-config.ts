@@ -32,6 +32,7 @@ export const siteConfig = {
   google: {
     profileHref: "https://share.google/IvANP8pmJfdUYsKih",
     kgmid: "/g/11nqdddr3j",
+    reviewHref: "https://g.page/r/CTGVWfQ5uomDEAI/review",
   },
   // Paths mirror the existing WordPress site so URLs carry over when those pages are rebuilt.
   nav: [
