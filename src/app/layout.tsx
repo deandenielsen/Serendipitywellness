@@ -5,6 +5,8 @@ import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { WhatsAppButton } from "@/components/layout/whatsapp-button";
 import { PageLoader } from "@/components/layout/page-loader";
+import { JsonLd } from "@/components/seo/json-ld";
+import { businessJsonLd } from "@/lib/seo";
 import "./globals.css";
 
 const publicSans = Public_Sans({
@@ -47,9 +49,6 @@ export const metadata: Metadata = {
     "Cape Town",
     "Edgemead",
   ],
-  alternates: {
-    canonical: "/",
-  },
   openGraph: {
     type: "website",
     locale: siteConfig.locale,
@@ -74,37 +73,13 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "HealthAndBeautyBusiness",
-    name: siteConfig.name,
-    telephone: siteConfig.contact.phone,
-    email: siteConfig.contact.email,
-    sameAs: [siteConfig.social.facebook, siteConfig.social.instagram],
-    description: siteConfig.description,
-    url: siteConfig.url,
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: siteConfig.location.suburb,
-      addressRegion: siteConfig.location.region,
-      addressCountry: "ZA",
-    },
-    areaServed: {
-      "@type": "City",
-      name: siteConfig.location.city,
-    },
-  };
-
   return (
     <html
       lang="en"
       className={`${publicSans.variable} ${playball.variable} ${urbanist.variable} antialiased`}
     >
       <body className="flex min-h-full flex-col bg-page text-ink">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
+        <JsonLd data={businessJsonLd()} />
         <SiteHeader />
         <main className="flex-1">{children}</main>
         <SiteFooter />
