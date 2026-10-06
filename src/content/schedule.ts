@@ -19,7 +19,7 @@ export const adultPackages = [
 export const privateClassesFrom = 250;
 
 export const kidsTeens = [
-  { name: "Kids Yoga", prices: [{ price: 730, unit: "for 8 classes per term" }] },
+  { name: "Kids Yoga (ages 4–12)", prices: [{ price: 730, unit: "for 8 classes per term" }] },
   {
     name: "Teen Stress Management",
     prices: [
@@ -61,6 +61,6 @@ export const scheduleFaqs = [
   {
     question: "How much are kids and teen yoga classes?",
     answer:
-      "Kids Yoga is R730 for 8 classes per term. Teen Stress Management classes are R140 per class or R400 for a 4 class pass.",
+      "Kids Yoga (ages 4 to 12) is R730 for 8 classes per term. Teen Stress Management classes are R140 per class or R400 for a 4 class pass.",
   },
 ];
