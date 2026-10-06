@@ -10,6 +10,8 @@ import { siteConfig } from "@/lib/site-config";
 import { FacebookIcon, InstagramIcon } from "@/components/ui/social-icons";
 import { cn } from "@/lib/utils";
 
+const SOLID_HEADER_PATHS = ["/contact/", "/privacy-policy/"];
+
 /**
  * Fixed header: transparent with the white logo over the hero, switching to a white bar
  * with the colour logo and a soft shadow once the page scrolls.
@@ -25,7 +27,9 @@ function SiteHeader() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const solid = scrolled || open;
+  // Pages without a dark photo banner start with the solid header.
+  const lightTop = SOLID_HEADER_PATHS.includes(usePathname());
+  const solid = scrolled || open || lightTop;
 
   return (
     <motion.header
