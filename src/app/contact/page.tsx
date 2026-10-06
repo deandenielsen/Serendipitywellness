@@ -115,6 +115,18 @@ export default function ContactPage() {
             Check class and treatment availability online
           </a>
         </p>
+        <div className="mt-12 text-center">
+          <p className="script-heading text-[28px]">Enjoyed your class or treatment?</p>
+          <p className="mt-2 text-[15px] text-ink-soft">A quick Google review helps others find us.</p>
+          <a
+            href={siteConfig.google.reviewHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-6 inline-flex rounded-full border border-black/20 px-7 py-3 text-[15px] font-medium transition-colors hover:border-black"
+          >
+            Leave us a Google review
+          </a>
+        </div>
       </section>
     </>
   );
