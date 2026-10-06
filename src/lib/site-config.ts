@@ -28,6 +28,11 @@ export const siteConfig = {
     facebook: "https://www.facebook.com/serendipitywellnesscpt",
     instagram: "https://www.instagram.com/serendipitywellnesscpt/",
   },
+  // Google Business Profile. kgmid is Google's Knowledge Graph ID for the business.
+  google: {
+    profileHref: "https://share.google/IvANP8pmJfdUYsKih",
+    kgmid: "/g/11nqdddr3j",
+  },
   // Paths mirror the existing WordPress site so URLs carry over when those pages are rebuilt.
   nav: [
     {
