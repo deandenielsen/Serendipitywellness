@@ -1,8 +1,14 @@
+export type NavItem = {
+  label: string;
+  href: string;
+  children?: readonly { label: string; href: string }[];
+};
+
 export const siteConfig = {
   name: "Serendipity Wellness",
-  tagline: "A Space to Reconnect, Restore & Thrive",
+  tagline: "Yoga, Massage & Mindfulness in Edgemead, Cape Town",
   description:
-    "Boutique yoga studio and massage therapy space in Edgemead, Cape Town. Yoga classes, massage, reflexology and wellness retreats for every body.",
+    "Boutique yoga studio and therapeutic massage space in Edgemead, Cape Town. Yoga, rehabilitation and pre & post natal yoga, mindfulness, meditation and retreats.",
   url: "https://serendipitywellness.co.za",
   locale: "en_ZA",
   location: {
@@ -11,13 +17,36 @@ export const siteConfig = {
     region: "Western Cape",
     country: "South Africa",
   },
+  contact: {
+    phone: "+27 79 085 6100",
+    phoneHref: "tel:+27790856100",
+    whatsappHref: "https://wa.me/27790856100",
+    email: "info@serendipitywellness.co.za",
+  },
+  social: {
+    facebook: "https://www.facebook.com/serendipitywellnesscpt",
+    instagram: "https://www.instagram.com/serendipitywellnesscpt/",
+  },
+  // Paths mirror the existing WordPress site so URLs carry over when those pages are rebuilt.
   nav: [
-    { label: "Yoga", href: "/#yoga" },
-    { label: "Massage & Reflexology", href: "/#massage" },
-    { label: "Retreats & Events", href: "/#retreats" },
+    {
+      label: "Yoga",
+      href: "/yoga/",
+      children: [
+        { label: "Yoga", href: "/yoga/" },
+        { label: "Rehabilitation Yoga", href: "/rehabilitation-yoga/" },
+        { label: "Pre & Post Natal Yoga", href: "/pre-post-natal-yoga/" },
+      ],
+    },
+    { label: "Mindfulness & Meditation", href: "/mindfulness-meditation/" },
+    { label: "Therapeutic Massage", href: "/therapeutic-massage/" },
+    { label: "Retreats", href: "/retreats/" },
+  ] as readonly NavItem[],
+  secondaryNav: [
+    { label: "Schedule and Packages", href: "/schedule-and-packages/" },
+    { label: "Contact", href: "/contact/" },
   ],
-  ctaLabel: "Begin Your Journey",
-  ctaHref: "/#begin",
+  privacyHref: "/privacy-policy/",
 } as const;
 
 export type SiteConfig = typeof siteConfig;

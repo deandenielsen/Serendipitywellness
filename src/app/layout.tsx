@@ -1,22 +1,30 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Poppins } from "next/font/google";
+import { Playball, Public_Sans, Urbanist } from "next/font/google";
 import { siteConfig } from "@/lib/site-config";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
+import { WhatsAppButton } from "@/components/layout/whatsapp-button";
+import { PageLoader } from "@/components/layout/page-loader";
 import "./globals.css";
 
-const cormorant = Cormorant_Garamond({
-  variable: "--font-cormorant",
+const publicSans = Public_Sans({
+  variable: "--font-public-sans",
   subsets: ["latin"],
-  weight: ["600", "700"],
-  style: ["normal", "italic"],
+  weight: ["300", "400", "500"],
   display: "swap",
 });
 
-const poppins = Poppins({
-  variable: "--font-poppins",
+const playball = Playball({
+  variable: "--font-playball",
   subsets: ["latin"],
-  weight: ["400", "500"],
+  weight: "400",
+  display: "swap",
+});
+
+const urbanist = Urbanist({
+  variable: "--font-urbanist",
+  subsets: ["latin"],
+  weight: ["600"],
   display: "swap",
 });
 
@@ -70,6 +78,9 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "HealthAndBeautyBusiness",
     name: siteConfig.name,
+    telephone: siteConfig.contact.phone,
+    email: siteConfig.contact.email,
+    sameAs: [siteConfig.social.facebook, siteConfig.social.instagram],
     description: siteConfig.description,
     url: siteConfig.url,
     address: {
@@ -87,9 +98,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${cormorant.variable} ${poppins.variable} h-full antialiased`}
+      className={`${publicSans.variable} ${playball.variable} ${urbanist.variable} antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-background text-copy">
+      <body className="flex min-h-full flex-col bg-page text-ink">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -97,6 +108,8 @@ export default function RootLayout({
         <SiteHeader />
         <main className="flex-1">{children}</main>
         <SiteFooter />
+        <WhatsAppButton />
+        <PageLoader />
       </body>
     </html>
   );

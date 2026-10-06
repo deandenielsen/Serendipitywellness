@@ -1,51 +1,57 @@
 import Link from "next/link";
-import { Wordmark } from "@/components/wordmark";
-import { Container } from "@/components/ui/container";
+import { SplitReveal } from "@/components/motion/split-reveal";
+import { WaveButton } from "@/components/ui/wave-button";
 import { siteConfig } from "@/lib/site-config";
 
 function SiteFooter() {
   const year = new Date().getFullYear();
+  const { contact, location } = siteConfig;
 
   return (
-    <footer className="border-t border-secondary/60 bg-secondary/40">
-      <Container className="flex flex-col gap-10 py-16 md:flex-row md:items-start md:justify-between">
-        <div className="max-w-sm">
-          <Wordmark />
-          <p className="mt-4 text-small text-copy/80">
-            {siteConfig.description}
-          </p>
+    <footer className="bg-white">
+      <div className="px-6 sm:px-10 lg:px-[3.2vw]">
+        <hr className="border-black/10" />
+      </div>
+
+      <div className="grid gap-12 px-6 py-14 sm:px-10 lg:grid-cols-[53fr_24fr_23fr] lg:gap-x-0 lg:px-[8vw] lg:py-[4vw]">
+        <div>
+          <SplitReveal
+            as="h2"
+            text="Start your wellness journey today!"
+            className="max-w-[340px] font-display text-[26px] font-semibold leading-[1.1] tracking-[-0.03em] lg:text-[30px]"
+          />
+          <WaveButton href="/contact/" label="Contact Us" className="mt-[35px]" />
         </div>
 
-        <nav aria-label="Footer" className="flex flex-col gap-3">
-          <span className="text-eyebrow font-medium uppercase tracking-[0.08em] text-copy/60">
-            Explore
-          </span>
-          {siteConfig.nav.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="text-small text-copy transition-colors hover:text-primary-strong"
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
+        <div>
+          <h3 className="script-heading text-[22px]">Address</h3>
+          <address className="mt-3 text-[15px] not-italic leading-[1.6]">
+            {location.suburb}
+            <br />
+            {location.region}
+            <br />
+            {location.country}
+          </address>
+        </div>
 
-        <div className="flex flex-col gap-3">
-          <span className="text-eyebrow font-medium uppercase tracking-[0.08em] text-copy/60">
-            Visit
-          </span>
-          <p className="text-small text-copy">
-            {siteConfig.location.suburb}, {siteConfig.location.city}
+        <div>
+          <h3 className="script-heading text-[22px]">Connect</h3>
+          <p className="mt-3 text-[15px] leading-[1.6] text-ink-soft">
+            T: <a href={contact.phoneHref} className="hover:text-brand-teal">{contact.phone}</a>
+            <br />
+            E: <a href={`mailto:${contact.email}`} className="hover:text-brand-teal">{contact.email}</a>
           </p>
         </div>
-      </Container>
+      </div>
 
-      <Container className="border-t border-secondary/60 py-6">
-        <p className="text-small text-copy/60">
-          &copy; {year} {siteConfig.name}. All rights reserved.
+      <div className="flex flex-wrap items-center justify-between gap-4 px-6 pb-7 text-[17px] leading-[26px] sm:px-10 lg:px-[8vw]">
+        <p>
+          © {year} {siteConfig.name}
         </p>
-      </Container>
+        <Link prefetch={false} href={siteConfig.privacyHref} className="border-b border-current pb-px hover:text-brand-teal">
+          Privacy Policy
+        </Link>
+      </div>
     </footer>
   );
 }

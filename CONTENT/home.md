@@ -1,5 +1,8 @@
 # Homepage Copy (Approved)
 
+> **Not currently used:** the homepage now uses the live site's copy (see `src/app/page.tsx`).
+> This draft copy is kept for future pages.
+
 Source of truth for homepage content per PROJECT.md. Do not rewrite unless specifically instructed.
 
 ---

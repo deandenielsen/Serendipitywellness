@@ -1,5 +1,8 @@
 # Serendipity Wellness — Design System
 
+> **Superseded for the homepage (Oct 2026):** the homepage now matches the live WordPress site
+> like for like (fonts, layout, photography, animations). See `README.md`. This spec is kept for reference.
+
 Fresh visual identity for the Next.js rebuild. Copy carries over from the old WordPress site;
 everything visual starts clean from this spec.
 
