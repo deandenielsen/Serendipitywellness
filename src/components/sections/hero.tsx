@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { LetterReveal, SplitReveal } from "@/components/motion/split-reveal";
 
@@ -17,12 +18,21 @@ function Hero() {
     <section className="relative flex h-svh min-h-[560px] items-center justify-center overflow-hidden bg-hero text-white">
       <motion.div
         aria-hidden="true"
-        className="absolute inset-0 bg-cover bg-left-top"
-        style={{ backgroundImage: "url(/images/Serendipity-Wellness-Landing-Image.jpeg)", y: bgY }}
-        initial={reduceMotion ? false : { opacity: 0, scale: 1.12 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ opacity: { duration: 1.2, delay: 0.2 }, scale: { duration: 2.4, ease: [0.2, 0.7, 0.2, 1] } }}
-      />
+        className="absolute inset-0"
+        style={{ y: bgY }}
+        initial={reduceMotion ? false : { scale: 1.12 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 2.4, ease: [0.2, 0.7, 0.2, 1] }}
+      >
+        <Image
+          src="/images/Serendipity-Wellness-Landing-Image.jpeg"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-left-top"
+        />
+      </motion.div>
       <div aria-hidden="true" className="absolute inset-0 bg-black/[0.62]" />
 
       <div className="relative px-6 text-center">

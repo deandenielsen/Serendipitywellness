@@ -5,6 +5,9 @@ import { siteConfig } from "@/lib/site-config";
 export const BUSINESS_ID = `${siteConfig.url}/#business`;
 export const WEBSITE_ID = `${siteConfig.url}/#website`;
 
+/** 1200×630 share image used when a page has no photo of its own. */
+export const DEFAULT_OG_IMAGE = "/images/og-default.jpg";
+
 export function absoluteUrl(path: string) {
   return new URL(path, siteConfig.url).toString();
 }
@@ -21,7 +24,7 @@ export function pageMetadata({
   path: string;
   image?: string;
 }): Metadata {
-  const images = image ? [{ url: image }] : undefined;
+  const images = [image ? { url: image } : { url: DEFAULT_OG_IMAGE, width: 1200, height: 630 }];
   return {
     title: { absolute: title },
     description,
@@ -35,7 +38,7 @@ export function pageMetadata({
       description,
       images,
     },
-    twitter: { card: "summary_large_image", title, description, images: image ? [image] : undefined },
+    twitter: { card: "summary_large_image", title, description, images: [image ?? DEFAULT_OG_IMAGE] },
   };
 }
 

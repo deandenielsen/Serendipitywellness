@@ -60,7 +60,8 @@ function SplitReveal({
   const play = immediate || inView;
 
   return (
-    <Tag ref={ref} className={className} aria-label={text}>
+    <Tag ref={ref} className={className}>
+      <span className="sr-only">{text}</span>
       {words.map((word, i) => (
         <span key={i} aria-hidden="true">
           <span
@@ -101,7 +102,8 @@ function LetterReveal({
   let index = 0;
 
   return (
-    <Tag className={cn(className)} aria-label={text}>
+    <Tag className={cn(className)}>
+      <span className="sr-only">{text}</span>
       {text.split(" ").map((word, w, all) => (
         <span key={w} aria-hidden="true">
           <span className="-mb-[0.2em] inline-block overflow-hidden pb-[0.2em] pr-[0.08em] align-bottom">

@@ -90,13 +90,11 @@ function Expertise() {
           onDragStart={() => (dragged.current = true)}
           onDragEnd={() => setTimeout(() => (dragged.current = false), 0)}
           className="flex gap-5 touch-pan-y"
-          role="list"
         >
           {AREAS.map((area) => (
             <Link prefetch={false}
               key={area.label}
               href={area.href}
-              role="listitem"
               draggable={false}
               onClick={(e) => dragged.current && e.preventDefault()}
               className="group relative block w-[78vw] shrink-0 select-none overflow-hidden rounded-[10px] sm:w-[44vw] lg:w-[calc((84vw-40px)/3)] lg:cursor-none"
