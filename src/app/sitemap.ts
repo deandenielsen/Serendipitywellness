@@ -14,5 +14,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
     { url: `${siteConfig.url}/schedule-and-packages/`, lastModified, changeFrequency: "weekly", priority: 0.9 },
     { url: `${siteConfig.url}/contact/`, lastModified, changeFrequency: "yearly", priority: 0.7 },
+    { url: `${siteConfig.url}/privacy-policy/`, lastModified, changeFrequency: "yearly", priority: 0.3 },
   ];
 }
