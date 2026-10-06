@@ -25,8 +25,9 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Notes
 
-- The header/footer wordmark is a temporary CSS text lockup. Swap in the real logo assets
-  (`Serendipity_Wellness_Main_Logo.png`, `_Light_Logo.png`, `_Favicon.png`) in `public/` and
-  update `src/components/wordmark.tsx` once they're available.
-- Section imagery uses placeholder blocks (`src/components/image-placeholder.tsx`) pending real
-  studio photography per `design.md` §6.
+- The homepage mirrors the live WordPress site (serendipitywellness.co.za) like for like:
+  layout, copy, photography, fonts (Public Sans, Playball, Urbanist) and motion. The motion is
+  re-implemented with Framer Motion (`src/components/motion/`). No theme code is reused.
+- Photography and the web logos in `public/images/` were taken from the live site.
+- Nav links keep the live site's URL paths (`/yoga/`, `/contact/` …) so URLs carry over once those
+  pages are rebuilt. They are not prefetched until the pages exist.
