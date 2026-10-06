@@ -33,8 +33,8 @@ export default function Home() {
         eyebrow="About"
         heading="Serendipity Wellness focuses on a holistic lifestyle."
         paragraphs={[
-          "With the pressure of today’s world, it's imperative that we find time to reconnect, not only with ourselves but also our families, children, friends and colleagues on a level that is stress free.",
-          "We offer services from Yoga classes for all ages and capabilities, to Meditation, to Therapeutic Massage. If you are ready to change your lifestyle get in touch, let us guide you…",
+          "In today’s busy world, it’s important to make time to reconnect, with ourselves and with the people who matter most.",
+          "From yoga for all ages and abilities to meditation and therapeutic massage, we’re here to guide you.",
         ]}
         large={groupClass}
         small={seatedMeditation}
