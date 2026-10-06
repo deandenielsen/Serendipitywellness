@@ -6,6 +6,12 @@ export type NavItem = {
 
 export const siteConfig = {
   name: "Serendipity Wellness",
+  founder: {
+    name: "Kerry Nielsen",
+    jobTitle: "Founder, yoga teacher and therapeutic massage therapist",
+    credentials: ["200-hour yoga teacher training", "50-hour kids yoga teacher training"],
+    yearsExperience: 10,
+  },
   tagline: "Yoga, Massage & Mindfulness in Edgemead, Cape Town",
   description:
     "Boutique yoga studio and therapeutic massage space in Edgemead, Cape Town. Yoga, rehabilitation and pre & post natal yoga, mindfulness, meditation and retreats.",

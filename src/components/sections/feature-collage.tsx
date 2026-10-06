@@ -17,6 +17,7 @@ function FeatureCollage({
   small,
   imageSide,
   className,
+  children,
 }: {
   id?: string;
   eyebrow: string;
@@ -26,6 +27,8 @@ function FeatureCollage({
   small: CollageImage;
   imageSide: "left" | "right";
   className?: string;
+  /** Extra content under the paragraphs. */
+  children?: React.ReactNode;
 }) {
   const imagesLeft = imageSide === "left";
 
@@ -50,6 +53,7 @@ function FeatureCollage({
               <SplitReveal key={i} text={p} delay={0.15 + i * 0.1} lineStagger={0.05} duration={0.8} />
             ))}
           </div>
+          {children}
         </div>
 
         <div

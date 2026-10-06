@@ -3,6 +3,7 @@ import { siteConfig } from "@/lib/site-config";
 
 /** Stable identifiers so every page's structured data points at the same business entity. */
 export const BUSINESS_ID = `${siteConfig.url}/#business`;
+export const FOUNDER_ID = `${siteConfig.url}/#kerry-nielsen`;
 export const WEBSITE_ID = `${siteConfig.url}/#website`;
 
 /** 1200×630 share image used when a page has no photo of its own. */
@@ -57,6 +58,8 @@ export function businessJsonLd() {
         image: absoluteUrl("/images/Serendipity-Wellness-About-Us.jpg"),
         telephone: siteConfig.contact.phone,
         email: siteConfig.contact.email,
+        founder: { "@id": FOUNDER_ID },
+        employee: { "@id": FOUNDER_ID },
         priceRange: "R",
         currenciesAccepted: "ZAR",
         sameAs: [
@@ -88,6 +91,20 @@ export function businessJsonLd() {
           "Mindfulness",
           "Therapeutic massage",
         ],
+      },
+      {
+        "@type": "Person",
+        "@id": FOUNDER_ID,
+        name: siteConfig.founder.name,
+        jobTitle: siteConfig.founder.jobTitle,
+        worksFor: { "@id": BUSINESS_ID },
+        url: `${siteConfig.url}/#about`,
+        hasCredential: siteConfig.founder.credentials.map((name) => ({
+          "@type": "EducationalOccupationalCredential",
+          credentialCategory: "certificate",
+          name,
+        })),
+        knowsAbout: ["Yoga", "Kids yoga", "Therapeutic massage", "Reflexology", "Meditation", "Mindfulness"],
       },
       {
         "@type": "WebSite",
