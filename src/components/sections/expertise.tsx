@@ -53,17 +53,17 @@ function Expertise() {
       const set = COUNT * stepWidth.current;
       if (index.current < COUNT) {
         index.current += COUNT;
-        x.set(x.get() - set);
+        x.jump(x.get() - set);
       } else if (index.current >= COUNT * 2) {
         index.current -= COUNT;
-        x.set(x.get() + set);
+        x.jump(x.get() + set);
       }
 
       const target = index.current + delta;
       index.current = target;
       setActive(wrap(target));
       const to = -target * stepWidth.current;
-      if (instant || reduceMotion) x.set(to);
+      if (instant || reduceMotion) x.jump(to);
       else animate(x, to, { type: "spring", stiffness: 140, damping: 26 });
     },
     [reduceMotion, x],
@@ -76,7 +76,7 @@ function Expertise() {
     const measure = () => {
       if (!cardRef.current) return;
       stepWidth.current = cardRef.current.offsetWidth + GAP;
-      x.set(-index.current * stepWidth.current);
+      x.jump(-index.current * stepWidth.current);
     };
     measure();
     window.addEventListener("resize", measure);
