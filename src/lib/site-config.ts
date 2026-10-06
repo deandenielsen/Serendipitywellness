@@ -41,7 +41,6 @@ export const siteConfig = {
     },
     { label: "Mindfulness & Meditation", href: "/mindfulness-meditation/" },
     { label: "Therapeutic Massage", href: "/therapeutic-massage/" },
-    { label: "Retreats", href: "/retreats/" },
   ] as readonly NavItem[],
   secondaryNav: [
     { label: "Schedule and Packages", href: "/schedule-and-packages/" },

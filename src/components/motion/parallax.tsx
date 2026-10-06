@@ -7,6 +7,7 @@ import {
   useTransform,
   type MotionValue,
 } from "framer-motion";
+import Image from "next/image";
 import { useRef, type ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
@@ -69,15 +70,20 @@ function ParallaxImage({
   const y = useShift(progress, distance);
   return (
     <div ref={ref} className={cn("relative overflow-hidden", className)}>
-      <motion.img
-        src={src}
-        alt={alt}
-        sizes={sizes}
-        loading={priority ? "eager" : "lazy"}
-        decoding="async"
+      <motion.div
         style={{ y, top: -distance, height: `calc(100% + ${distance * 2}px)` }}
-        className={cn("absolute inset-x-0 w-full object-cover", imgClassName)}
-      />
+        className="absolute inset-x-0"
+      >
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          sizes={sizes ?? "100vw"}
+          priority={priority}
+          draggable={false}
+          className={cn("object-cover", imgClassName)}
+        />
+      </motion.div>
     </div>
   );
 }

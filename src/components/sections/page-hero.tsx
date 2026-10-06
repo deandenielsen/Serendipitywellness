@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
 import { ArrowDown } from "lucide-react";
 import { LetterReveal } from "@/components/motion/split-reveal";
 
@@ -15,16 +16,15 @@ function PageHero({ title, image, alt, nextId = "content" }: { title: string; im
 
   return (
     <section className="relative flex h-[70svh] min-h-[420px] items-center justify-center overflow-hidden bg-hero text-white lg:h-[41vw] lg:min-h-[520px]">
-      <motion.img
-        src={image}
-        alt={alt}
-        fetchPriority="high"
-        className="absolute inset-0 h-[120%] w-full object-cover"
+      <motion.div
+        className="absolute inset-x-0 top-0 h-[120%]"
         style={{ y: bgY }}
-        initial={reduceMotion ? false : { opacity: 0, scale: 1.12 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ opacity: { duration: 1.2, delay: 0.2 }, scale: { duration: 2.4, ease: [0.2, 0.7, 0.2, 1] } }}
-      />
+        initial={reduceMotion ? false : { scale: 1.12 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 2.4, ease: [0.2, 0.7, 0.2, 1] }}
+      >
+        <Image src={image} alt={alt} fill priority sizes="100vw" className="object-cover" />
+      </motion.div>
       <div aria-hidden="true" className="absolute inset-0 bg-black/45" />
 
       <div className="relative px-6 pt-16 text-center">

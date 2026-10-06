@@ -6,7 +6,7 @@ import { SiteFooter } from "@/components/layout/site-footer";
 import { WhatsAppButton } from "@/components/layout/whatsapp-button";
 import { PageLoader } from "@/components/layout/page-loader";
 import { JsonLd } from "@/components/seo/json-ld";
-import { businessJsonLd } from "@/lib/seo";
+import { DEFAULT_OG_IMAGE, businessJsonLd } from "@/lib/seo";
 import "./globals.css";
 
 const publicSans = Public_Sans({
@@ -56,11 +56,13 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     title: `${siteConfig.name} | Yoga, Massage & Wellness in Edgemead, Cape Town`,
     description: siteConfig.description,
+    images: [{ url: DEFAULT_OG_IMAGE, width: 1200, height: 630, alt: siteConfig.name }],
   },
   twitter: {
     card: "summary_large_image",
     title: `${siteConfig.name} | Yoga, Massage & Wellness in Edgemead, Cape Town`,
     description: siteConfig.description,
+    images: [DEFAULT_OG_IMAGE],
   },
   robots: {
     index: true,
