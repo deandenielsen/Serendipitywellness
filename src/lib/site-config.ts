@@ -14,7 +14,7 @@ export const siteConfig = {
   },
   tagline: "Yoga, Massage & Mindfulness in Edgemead, Cape Town",
   description:
-    "Boutique yoga studio and therapeutic massage space in Edgemead, Cape Town. Yoga, rehabilitation and pre & post natal yoga, mindfulness, meditation and retreats.",
+    "Small-group yoga (max 5 per class), therapeutic massage, lymphatic drainage, reflexology and mindfulness in a calm home studio in Edgemead, Cape Town.",
   url: "https://serendipitywellness.co.za",
   locale: "en_ZA",
   location: {
