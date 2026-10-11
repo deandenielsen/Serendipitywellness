@@ -9,6 +9,7 @@ const CARD_IMAGES: Record<string, string> = {
   "mindfulness-meditation": "/images/Mindfulness-Meditation.jpg",
   "pre-post-natal-yoga": "/images/Pre-_-Post-Natal-Yoga.jpg",
   "rehabilitation-yoga": "/images/Rehabilitation-Yoga.jpeg",
+  "lymphatic-drainage-massage": "/images/services/massage-intro.jpg",
 };
 
 /** "Explore more" cards linking sibling services — internal links help both visitors and crawlers. */

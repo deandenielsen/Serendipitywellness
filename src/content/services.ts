@@ -462,7 +462,90 @@ export const services: Service[] = [
           "Check availability and book online at booking.serendipitywellness.co.za, or contact us on WhatsApp or by phone on +27 79 085 6100.",
       },
     ],
-    related: ["yoga", "rehabilitation-yoga", "mindfulness-meditation"],
+    related: ["lymphatic-drainage-massage", "yoga", "mindfulness-meditation"],
+  },
+  {
+    slug: "lymphatic-drainage-massage",
+    name: "Lymphatic Drainage",
+    title: "Lymphatic Drainage",
+    seoTitle: "Lymphatic Drainage Massage in Edgemead, Cape Town | R550 Intro",
+    seoDescription:
+      "Gentle lymphatic drainage massage in Edgemead, Cape Town to reduce swelling and fluid retention and support recovery after surgery. Intro session R550 including consultation.",
+    serviceType: "Lymphatic drainage massage",
+    // Placeholder photos (shared with Therapeutic Massage) until studio photos are supplied.
+    hero: { src: `${S}/massage-hero.jpeg`, alt: "Client relaxing during a gentle massage treatment" },
+    intro: {
+      heading: "Lymphatic Drainage Massage",
+      paragraphs: [
+        "This gentle, rhythmic massage technique uses light, precise strokes to encourage the natural flow of lymph fluid through the body’s lymphatic system, which sits just beneath the skin.",
+        "Unlike deep tissue massage, lymphatic drainage works with soft pressure to help reduce swelling and fluid retention and to support recovery after surgery or injury. Many clients find it deeply calming, leaving them feeling lighter, refreshed and restored.",
+      ],
+      benefits: [
+        {
+          title: "Reduced swelling",
+          text: "Lymphatic drainage can help ease puffiness, bloating and fluid retention, and is often recommended to support recovery after cosmetic or orthopaedic surgery.",
+        },
+        {
+          title: "Deep relaxation",
+          text: "The slow, soothing rhythm of the treatment calms the nervous system, making it a gentle option for anyone who prefers a lighter touch.",
+        },
+        {
+          title: "Post-op recovery",
+          text: "Our recovery programmes are tailored to your procedure and timeline, helping you feel more comfortable as you heal. Please check with your surgeon before booking.",
+        },
+        {
+          title: "Who it’s not for",
+          text: "Lymphatic drainage isn’t suitable for everyone, including people with acute infections, blood clots, heart conditions or active cancer. We’ll take you through a short health questionnaire before your first session.",
+        },
+      ],
+      image: { src: `${S}/massage-intro.jpg`, alt: "Therapist using light, gentle strokes on a client's shoulders" },
+    },
+    sections: [],
+    expect: {
+      heading: "What to expect",
+      paragraphs: [
+        "Your first visit is an intro session that includes a consultation. We’ll go through a short health questionnaire and talk about what you’d like help with, whether that’s swelling, fluid retention or recovery after a procedure, so the treatment can be tailored to you.",
+        "The massage itself uses light, slow, rhythmic strokes rather than deep pressure, and takes place in our quiet, home-based massage studio in Edgemead. If you’re recovering from surgery, please get the go-ahead from your surgeon before booking.",
+      ],
+    },
+    pricing: [{ label: "Intro session", price: 550 }],
+    cta: {
+      text: "Book your intro session: R550 including consultation",
+      image: `${S}/massage-hero.jpeg`,
+      href: "https://booking.serendipitywellness.co.za/",
+      label: "Check Availability",
+    },
+    faqs: [
+      {
+        question: "How much does lymphatic drainage massage cost?",
+        answer: "Your intro session is R550 and includes a consultation.",
+      },
+      {
+        question: "Does lymphatic drainage massage hurt?",
+        answer:
+          "No. It uses soft, light pressure and slow, rhythmic strokes, which is very different from a deep tissue massage. Most clients find it deeply relaxing.",
+      },
+      {
+        question: "Can I have lymphatic drainage after surgery?",
+        answer:
+          "Yes, it is often recommended to support recovery after cosmetic or orthopaedic surgery, and recovery programmes are tailored to your procedure and timeline. Please check with your surgeon before booking.",
+      },
+      {
+        question: "Who should not have lymphatic drainage massage?",
+        answer:
+          "It isn’t suitable for everyone, including people with acute infections, blood clots, heart conditions or active cancer. You’ll complete a short health questionnaire before your first session.",
+      },
+      {
+        question: "Where is lymphatic drainage offered?",
+        answer: "In our quiet, home-based massage studio in Edgemead, in the Northern Suburbs of Cape Town.",
+      },
+      {
+        question: "How do I book?",
+        answer:
+          "Check availability and book online at booking.serendipitywellness.co.za, or contact us on WhatsApp or by phone on +27 79 085 6100.",
+      },
+    ],
+    related: ["therapeutic-massage", "mindfulness-meditation", "rehabilitation-yoga"],
   },
 ];
 

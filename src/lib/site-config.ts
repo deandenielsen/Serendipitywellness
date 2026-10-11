@@ -52,7 +52,14 @@ export const siteConfig = {
       ],
     },
     { label: "Mindfulness & Meditation", href: "/mindfulness-meditation/" },
-    { label: "Therapeutic Massage", href: "/therapeutic-massage/" },
+    {
+      label: "Massage",
+      href: "/therapeutic-massage/",
+      children: [
+        { label: "Therapeutic Massage", href: "/therapeutic-massage/" },
+        { label: "Lymphatic Drainage", href: "/lymphatic-drainage-massage/" },
+      ],
+    },
   ] as readonly NavItem[],
   secondaryNav: [
     { label: "Schedule and Packages", href: "/schedule-and-packages/" },
