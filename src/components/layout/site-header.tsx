@@ -45,7 +45,7 @@ function SiteHeader() {
     >
       <div
         className={cn(
-          "flex items-center justify-between px-6 transition-[height] duration-500 lg:px-9",
+          "flex items-center justify-between px-6 transition-[height] duration-500 lg:px-9 xl:grid xl:grid-cols-[minmax(max-content,1fr)_auto_minmax(max-content,1fr)] xl:gap-x-8",
           scrolled ? "h-[72px] lg:h-[90px]" : "h-[80px] lg:h-[128px]",
         )}
       >
@@ -69,7 +69,7 @@ function SiteHeader() {
         </Link>
 
         <nav
-          className="hidden items-center gap-[18px] whitespace-nowrap text-[14px] font-medium xl:flex min-[1400px]:gap-7 min-[1400px]:text-base"
+          className="hidden items-center gap-4 whitespace-nowrap text-[14px] font-medium xl:flex min-[1600px]:gap-7 min-[1600px]:text-base"
           aria-label="Primary"
         >
           {siteConfig.nav.map((item) =>
@@ -101,7 +101,11 @@ function SiteHeader() {
               </NavLink>
             ),
           )}
-          <div className="ml-2 flex items-center gap-4 min-[1400px]:ml-6">
+        </nav>
+
+        {/* Right-hand menu: social links, schedule and contact. */}
+        <div className="hidden items-center gap-4 justify-self-end whitespace-nowrap text-[14px] font-medium xl:flex min-[1600px]:gap-7 min-[1600px]:text-base">
+          <div className="flex items-center gap-4">
             <a href={siteConfig.social.facebook} aria-label="Facebook" target="_blank" rel="noopener noreferrer" className="opacity-90 hover:opacity-100">
               <FacebookIcon className="h-[14px] w-[14px]" />
             </a>
@@ -114,7 +118,7 @@ function SiteHeader() {
               {item.label}
             </NavLink>
           ))}
-        </nav>
+        </div>
 
         <button
           type="button"
