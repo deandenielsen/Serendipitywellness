@@ -90,6 +90,7 @@ export function businessJsonLd() {
           "Meditation",
           "Mindfulness",
           "Therapeutic massage",
+          "Lymphatic drainage massage",
         ],
       },
       {
@@ -104,7 +105,7 @@ export function businessJsonLd() {
           credentialCategory: "certificate",
           name,
         })),
-        knowsAbout: ["Yoga", "Kids yoga", "Therapeutic massage", "Reflexology", "Meditation", "Mindfulness"],
+        knowsAbout: ["Yoga", "Kids yoga", "Therapeutic massage", "Lymphatic drainage massage", "Reflexology", "Meditation", "Mindfulness"],
       },
       {
         "@type": "WebSite",
