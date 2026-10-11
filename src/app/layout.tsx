@@ -5,6 +5,7 @@ import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { WhatsAppButton } from "@/components/layout/whatsapp-button";
 import { PageLoader } from "@/components/layout/page-loader";
+import { TodoWidget } from "@/components/layout/todo-widget";
 import { JsonLd } from "@/components/seo/json-ld";
 import { DEFAULT_OG_IMAGE, businessJsonLd } from "@/lib/seo";
 import "./globals.css";
@@ -86,6 +87,7 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <SiteFooter />
         <WhatsAppButton />
+        <TodoWidget />
         <PageLoader />
       </body>
     </html>
