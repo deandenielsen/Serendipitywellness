@@ -68,7 +68,10 @@ function SiteHeader() {
           />
         </Link>
 
-        <nav className="hidden items-center gap-7 text-[15px] font-medium xl:flex xl:text-base" aria-label="Primary">
+        <nav
+          className="hidden items-center gap-[18px] whitespace-nowrap text-[14px] font-medium xl:flex min-[1400px]:gap-7 min-[1400px]:text-base"
+          aria-label="Primary"
+        >
           {siteConfig.nav.map((item) =>
             item.children ? (
               <div key={item.label} className="group relative">
@@ -98,7 +101,7 @@ function SiteHeader() {
               </NavLink>
             ),
           )}
-          <div className="ml-6 flex items-center gap-4">
+          <div className="ml-2 flex items-center gap-4 min-[1400px]:ml-6">
             <a href={siteConfig.social.facebook} aria-label="Facebook" target="_blank" rel="noopener noreferrer" className="opacity-90 hover:opacity-100">
               <FacebookIcon className="h-[14px] w-[14px]" />
             </a>

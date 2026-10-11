@@ -51,16 +51,10 @@ export const siteConfig = {
         { label: "Pre & Post Natal Yoga", href: "/pre-post-natal-yoga/" },
       ],
     },
+    { label: "Lymphatic Drainage", href: "/lymphatic-drainage-massage/" },
+    { label: "Therapeutic Massage", href: "/therapeutic-massage/" },
+    { label: "Reflexology", href: "/reflexology/" },
     { label: "Mindfulness & Meditation", href: "/mindfulness-meditation/" },
-    {
-      label: "Massage",
-      href: "/therapeutic-massage/",
-      children: [
-        { label: "Therapeutic Massage", href: "/therapeutic-massage/" },
-        { label: "Lymphatic Drainage", href: "/lymphatic-drainage-massage/" },
-        { label: "Reflexology", href: "/reflexology/" },
-      ],
-    },
   ] as readonly NavItem[],
   secondaryNav: [
     { label: "Schedule and Packages", href: "/schedule-and-packages/" },
