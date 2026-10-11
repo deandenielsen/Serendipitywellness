@@ -83,7 +83,7 @@ export default async function ServicePage({ params }: Props) {
         ]}
       />
 
-      <PageHero title={service.title} image={service.hero.src} alt={service.hero.alt} />
+      <PageHero title={service.title} image={service.hero.src} alt={service.hero.alt} position={service.hero.position} />
 
       <div id="content" className="scroll-mt-20">
         <SplitFeature

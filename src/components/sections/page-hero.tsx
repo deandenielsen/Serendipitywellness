@@ -9,7 +9,20 @@ import { LetterReveal } from "@/components/motion/split-reveal";
  * Inner-page photo banner: dark-tinted image, large script title rising letter by letter,
  * and a thin arrow inviting the scroll. The title is the page's H1.
  */
-function PageHero({ title, image, alt, nextId = "content" }: { title: string; image: string; alt: string; nextId?: string }) {
+function PageHero({
+  title,
+  image,
+  alt,
+  position,
+  nextId = "content",
+}: {
+  title: string;
+  image: string;
+  alt: string;
+  /** CSS object-position for the crop on narrow screens. */
+  position?: string;
+  nextId?: string;
+}) {
   const reduceMotion = useReducedMotion();
   const { scrollY } = useScroll();
   const bgY = useTransform(scrollY, [0, 600], reduceMotion ? [0, 0] : [0, 140]);
@@ -23,7 +36,7 @@ function PageHero({ title, image, alt, nextId = "content" }: { title: string; im
         animate={{ scale: 1 }}
         transition={{ duration: 2.4, ease: [0.2, 0.7, 0.2, 1] }}
       >
-        <Image src={image} alt={alt} fill priority fetchPriority="high" sizes="100vw" className="object-cover" />
+        <Image src={image} alt={alt} fill priority fetchPriority="high" sizes="100vw" className="object-cover" style={position ? { objectPosition: position } : undefined} />
       </motion.div>
       <div aria-hidden="true" className="absolute inset-0 bg-black/45" />
 

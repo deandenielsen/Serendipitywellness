@@ -27,7 +27,8 @@ export type Service = {
   seoDescription: string;
   /** Kind of service for structured data. */
   serviceType: string;
-  hero: { src: string; alt: string };
+  /** `position` sets the crop focus (CSS object-position) when the banner is cropped on phones. */
+  hero: { src: string; alt: string; position?: string };
   intro: {
     heading: string;
     paragraphs: string[];
@@ -559,12 +560,15 @@ export const services: Service[] = [
     slug: "reflexology",
     name: "Reflexology",
     title: "Reflexology",
-    seoTitle: "Reflexology in Edgemead, Cape Town | Foot & Hand Reflexology",
+    seoTitle: "Reflexology in Edgemead, Cape Town | From R295",
     seoDescription:
-      "Relaxing reflexology in a quiet home studio in Edgemead, Cape Town. Gentle pressure on points of the feet, hands and ears to ease stress and tension and help you rest. 60-minute sessions, fully clothed.",
+      "Relaxing reflexology in a quiet home studio in Edgemead, Cape Town. Gentle pressure on points of the feet, hands and ears to ease stress and tension and help you rest. Fully clothed. 45 minutes R295, 60 minutes R370.",
     serviceType: "Reflexology",
-    // Placeholder photos until the reflexology images are supplied.
-    hero: { src: `${S}/calm-massage-treatment-room.jpg`, alt: "Calm treatment room with a massage table and white towels" },
+    hero: {
+      src: `${S}/reflexology-treatment-cape-town.jpg`,
+      alt: "Client lying fully clothed on a treatment table while a therapist gives a foot reflexology treatment",
+      position: "72% center",
+    },
     intro: {
       heading: "Reflexology",
       paragraphs: [
@@ -589,19 +593,26 @@ export const services: Service[] = [
           text: "Reflexology may not be suitable if you have foot injuries, open wounds, a recent blood clot, or are in the first trimester of pregnancy. We’ll take you through a short health questionnaire before your first session.",
         },
       ],
-      image: { src: `${S}/lymphatic-drainage-leg-massage.jpg`, alt: "Therapist's hands working gently on a client's lower leg and foot" },
+      image: {
+        src: `${S}/reflexology-thumb-pressure-foot.jpg`,
+        alt: "Therapist applying focused thumb pressure to reflex points on a client's foot",
+      },
     },
     sections: [],
     expect: {
       heading: "What to expect",
       paragraphs: [
         "Before your first session we’ll go through a short health questionnaire and chat about how you’re feeling and what you’d like from the treatment. You stay fully clothed: you’ll simply remove your shoes and socks and settle in comfortably on the treatment table.",
-        "Your 60-minute session takes place in our quiet, home-based studio in Edgemead. Your therapist works through the reflex points on your feet, and on your hands and ears where helpful, using focused thumb and finger pressure in a calm, unhurried sequence. Most clients find it deeply relaxing.",
+        "Your 45- or 60-minute session takes place in our quiet, home-based studio in Edgemead. Your therapist works through the reflex points on your feet, and on your hands and ears where helpful, using focused thumb and finger pressure in a calm, unhurried sequence. Most clients find it deeply relaxing.",
       ],
     },
+    pricing: [
+      { label: "45 Min", price: 295 },
+      { label: "60 Min", price: 370 },
+    ],
     cta: {
-      text: "Book your reflexology session: 60 minutes of calm",
-      image: `${S}/massage-hero.jpeg`,
+      text: "Book your reflexology session: R370 for 60 minutes",
+      image: `${S}/reflexology-treatment-room.jpg`,
       href: "https://booking.serendipitywellness.co.za/",
       label: "Check Availability",
     },
@@ -610,6 +621,10 @@ export const services: Service[] = [
         question: "What is reflexology?",
         answer:
           "Reflexology is a gentle, hands-on therapy that applies focused pressure to specific points on the feet, hands and ears, which are believed to correspond to different areas of the body. It is designed to promote deep relaxation, ease tension and restore a sense of balance.",
+      },
+      {
+        question: "How much does reflexology cost?",
+        answer: "A 45-minute reflexology session is R295 and a 60-minute session is R370.",
       },
       {
         question: "Do I need to undress for reflexology?",
@@ -623,7 +638,7 @@ export const services: Service[] = [
       },
       {
         question: "How long is a reflexology session?",
-        answer: "A reflexology session is 60 minutes.",
+        answer: "You can choose a 45-minute session (R295) or a 60-minute session (R370).",
       },
       {
         question: "Who should not have reflexology?",
