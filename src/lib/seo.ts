@@ -91,6 +91,7 @@ export function businessJsonLd() {
           "Mindfulness",
           "Therapeutic massage",
           "Lymphatic drainage massage",
+          "Reflexology",
         ],
       },
       {

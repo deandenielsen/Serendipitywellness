@@ -58,6 +58,7 @@ export const siteConfig = {
       children: [
         { label: "Therapeutic Massage", href: "/therapeutic-massage/" },
         { label: "Lymphatic Drainage", href: "/lymphatic-drainage-massage/" },
+        { label: "Reflexology", href: "/reflexology/" },
       ],
     },
   ] as readonly NavItem[],
