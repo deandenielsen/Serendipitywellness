@@ -470,7 +470,7 @@ export const services: Service[] = [
     title: "Lymphatic Drainage",
     seoTitle: "Lymphatic Drainage Massage in Edgemead, Cape Town | R550 Intro",
     seoDescription:
-      "Gentle lymphatic drainage massage in Edgemead, Cape Town to reduce swelling and fluid retention and support recovery after surgery. Intro session R550 including consultation.",
+      "Gentle lymphatic drainage massage in Edgemead, Cape Town to reduce swelling and fluid retention and support recovery after surgery. Intro session with consultation R550, then R600 for 60 minutes.",
     serviceType: "Lymphatic drainage massage",
     // Placeholder photos (shared with Therapeutic Massage) until studio photos are supplied.
     hero: { src: `${S}/massage-hero.jpeg`, alt: "Client relaxing during a gentle massage treatment" },
@@ -508,7 +508,10 @@ export const services: Service[] = [
         "The massage itself uses light, slow, rhythmic strokes rather than deep pressure, and takes place in our quiet, home-based massage studio in Edgemead. If you’re recovering from surgery, please get the go-ahead from your surgeon before booking.",
       ],
     },
-    pricing: [{ label: "Intro session", price: 550 }],
+    pricing: [
+      { label: "Intro session", price: 550 },
+      { label: "60 Min", price: 600 },
+    ],
     cta: {
       text: "Book your intro session: R550 including consultation",
       image: `${S}/massage-hero.jpeg`,
@@ -518,7 +521,7 @@ export const services: Service[] = [
     faqs: [
       {
         question: "How much does lymphatic drainage massage cost?",
-        answer: "Your intro session is R550 and includes a consultation.",
+        answer: "Your first visit is an intro session for R550, which includes a consultation. After that, a 60-minute treatment is R600.",
       },
       {
         question: "Does lymphatic drainage massage hurt?",
