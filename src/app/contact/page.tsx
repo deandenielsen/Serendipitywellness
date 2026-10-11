@@ -9,7 +9,7 @@ const PATH = "/contact/";
 
 export const metadata = pageMetadata({
   title: "Contact Serendipity Wellness | Yoga & Massage in Edgemead",
-  description: `Get in touch with Serendipity Wellness in Edgemead, Cape Town about yoga classes, therapeutic massage or retreats. WhatsApp or call ${siteConfig.contact.phone}, or send us a message.`,
+  description: `Get in touch with Serendipity Wellness in Edgemead, Cape Town about yoga classes, therapeutic massage, lymphatic drainage or reflexology. WhatsApp or call ${siteConfig.contact.phone}, or send us a message.`,
   path: PATH,
 });
 

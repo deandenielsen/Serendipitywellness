@@ -6,6 +6,11 @@ import { siteConfig } from "@/lib/site-config";
 function SiteFooter() {
   const year = new Date().getFullYear();
   const { contact, location } = siteConfig;
+  // Every service page plus the timetable, linked from every page.
+  const services = [
+    ...siteConfig.nav.flatMap((item) => item.children ?? [item]),
+    siteConfig.secondaryNav[0],
+  ];
 
   return (
     <footer className="bg-white">
@@ -13,7 +18,7 @@ function SiteFooter() {
         <hr className="border-black/10" />
       </div>
 
-      <div className="grid gap-12 px-6 py-14 sm:px-10 lg:grid-cols-[53fr_24fr_23fr] lg:gap-x-0 lg:px-[8vw] lg:py-[4vw]">
+      <div className="grid gap-12 px-6 py-14 sm:px-10 md:grid-cols-2 lg:grid-cols-[36fr_22fr_16fr_26fr] lg:gap-x-0 lg:px-[8vw] lg:py-[4vw]">
         <div>
           <SplitReveal
             as="h2"
@@ -22,6 +27,19 @@ function SiteFooter() {
           />
           <WaveButton href="/contact/" label="Contact Us" className="mt-[35px]" />
         </div>
+
+        <nav aria-label="Services">
+          <h3 className="script-heading text-[22px]">Services</h3>
+          <ul className="mt-3 space-y-1 text-[15px] leading-[1.6] text-ink-soft">
+            {services.map((item) => (
+              <li key={item.href}>
+                <Link prefetch={false} href={item.href} className="hover:text-brand-teal">
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
         <div>
           <h3 className="script-heading text-[22px]">Address</h3>
@@ -49,7 +67,7 @@ function SiteFooter() {
             >
               Find us on Google
             </a>
-            {" · "}
+            <br />
             <a
               href={siteConfig.google.reviewHref}
               target="_blank"
