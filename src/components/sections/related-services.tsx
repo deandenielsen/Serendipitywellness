@@ -10,6 +10,7 @@ const CARD_IMAGES: Record<string, string> = {
   "pre-post-natal-yoga": "/images/Pre-_-Post-Natal-Yoga.jpg",
   "rehabilitation-yoga": "/images/Rehabilitation-Yoga.jpeg",
   "lymphatic-drainage-massage": "/images/services/lymphatic-drainage-neck-massage.jpg",
+  reflexology: "/images/services/calm-massage-treatment-room.jpg",
 };
 
 /** "Explore more" cards linking sibling services — internal links help both visitors and crawlers. */

@@ -462,7 +462,7 @@ export const services: Service[] = [
           "Check availability and book online at booking.serendipitywellness.co.za, or contact us on WhatsApp or by phone on +27 79 085 6100.",
       },
     ],
-    related: ["lymphatic-drainage-massage", "yoga", "mindfulness-meditation"],
+    related: ["lymphatic-drainage-massage", "reflexology", "mindfulness-meditation"],
   },
   {
     slug: "lymphatic-drainage-massage",
@@ -553,7 +553,90 @@ export const services: Service[] = [
           "Check availability and book online at booking.serendipitywellness.co.za, or contact us on WhatsApp or by phone on +27 79 085 6100.",
       },
     ],
-    related: ["therapeutic-massage", "mindfulness-meditation", "rehabilitation-yoga"],
+    related: ["therapeutic-massage", "reflexology", "mindfulness-meditation"],
+  },
+  {
+    slug: "reflexology",
+    name: "Reflexology",
+    title: "Reflexology",
+    seoTitle: "Reflexology in Edgemead, Cape Town | Foot & Hand Reflexology",
+    seoDescription:
+      "Relaxing reflexology in a quiet home studio in Edgemead, Cape Town. Gentle pressure on points of the feet, hands and ears to ease stress and tension and help you rest. 60-minute sessions, fully clothed.",
+    serviceType: "Reflexology",
+    // Placeholder photos until the reflexology images are supplied.
+    hero: { src: `${S}/calm-massage-treatment-room.jpg`, alt: "Calm treatment room with a massage table and white towels" },
+    intro: {
+      heading: "Reflexology",
+      paragraphs: [
+        "Reflexology is a gentle, hands-on therapy that applies focused pressure to specific points on the feet, hands and ears. These points are believed to correspond to different areas of the body.",
+        "Using precise thumb and finger techniques, your therapist works through these points in a calm, unhurried sequence. Reflexology is designed to promote deep relaxation, ease tension and restore a sense of balance, making it a wonderful treatment for both body and mind.",
+      ],
+      benefits: [
+        {
+          title: "Stress relief",
+          text: "The rhythmic pressure and quiet focus of a reflexology session help calm the nervous system, easing stress and leaving you feeling grounded and at peace.",
+        },
+        {
+          title: "Rest and renewal",
+          text: "Many clients find reflexology helps them unwind, sleep more soundly and feel more energised in the days after their treatment.",
+        },
+        {
+          title: "A treatment for everyone",
+          text: "Because reflexology focuses on the feet and hands, you stay fully clothed. That makes it a comfortable choice if you’re new to bodywork or prefer not to have a full-body massage.",
+        },
+        {
+          title: "Before you book",
+          text: "Reflexology may not be suitable if you have foot injuries, open wounds, a recent blood clot, or are in the first trimester of pregnancy. We’ll take you through a short health questionnaire before your first session.",
+        },
+      ],
+      image: { src: `${S}/lymphatic-drainage-leg-massage.jpg`, alt: "Therapist's hands working gently on a client's lower leg and foot" },
+    },
+    sections: [],
+    expect: {
+      heading: "What to expect",
+      paragraphs: [
+        "Before your first session we’ll go through a short health questionnaire and chat about how you’re feeling and what you’d like from the treatment. You stay fully clothed: you’ll simply remove your shoes and socks and settle in comfortably on the treatment table.",
+        "Your 60-minute session takes place in our quiet, home-based studio in Edgemead. Your therapist works through the reflex points on your feet, and on your hands and ears where helpful, using focused thumb and finger pressure in a calm, unhurried sequence. Most clients find it deeply relaxing.",
+      ],
+    },
+    cta: {
+      text: "Book your reflexology session: 60 minutes of calm",
+      image: `${S}/massage-hero.jpeg`,
+      href: "https://booking.serendipitywellness.co.za/",
+      label: "Check Availability",
+    },
+    faqs: [
+      {
+        question: "What is reflexology?",
+        answer:
+          "Reflexology is a gentle, hands-on therapy that applies focused pressure to specific points on the feet, hands and ears, which are believed to correspond to different areas of the body. It is designed to promote deep relaxation, ease tension and restore a sense of balance.",
+      },
+      {
+        question: "Do I need to undress for reflexology?",
+        answer:
+          "No. You stay fully clothed and only remove your shoes and socks, which makes reflexology a comfortable choice if you’re new to bodywork or prefer not to have a full-body massage.",
+      },
+      {
+        question: "Does reflexology hurt?",
+        answer:
+          "Reflexology uses focused but comfortable thumb and finger pressure. Some points can feel tender, and your therapist will adjust the pressure so the treatment stays relaxing.",
+      },
+      {
+        question: "How long is a reflexology session?",
+        answer: "A reflexology session is 60 minutes.",
+      },
+      {
+        question: "Who should not have reflexology?",
+        answer:
+          "Reflexology may not be suitable if you have foot injuries, open wounds, a recent blood clot, or are in the first trimester of pregnancy. You’ll complete a short health questionnaire before your first session.",
+      },
+      {
+        question: "Where can I have reflexology in Cape Town?",
+        answer:
+          "Serendipity Wellness offers reflexology in its quiet, home-based studio in Edgemead, in the Northern Suburbs of Cape Town. Book online at booking.serendipitywellness.co.za, or contact us on WhatsApp or by phone on +27 79 085 6100.",
+      },
+    ],
+    related: ["therapeutic-massage", "lymphatic-drainage-massage", "mindfulness-meditation"],
   },
 ];
 
