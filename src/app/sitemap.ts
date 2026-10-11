@@ -2,17 +2,33 @@ import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/site-config";
 import { services } from "@/content/services";
 
+/** Image entries help pages show up in Google Images. */
+const img = (path: string) => `${siteConfig.url}${path}`;
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
   return [
-    { url: `${siteConfig.url}/`, lastModified, changeFrequency: "monthly", priority: 1 },
+    {
+      url: `${siteConfig.url}/`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 1,
+      images: [img("/images/Serendipity-Wellness-Landing-Image.jpeg"), img("/images/Serendipity-Wellness-About-Us.jpg")],
+    },
     ...services.map((s) => ({
       url: `${siteConfig.url}/${s.slug}/`,
       lastModified,
       changeFrequency: "monthly" as const,
       priority: 0.9,
+      images: [img(s.hero.src), img(s.intro.image.src)],
     })),
-    { url: `${siteConfig.url}/schedule-and-packages/`, lastModified, changeFrequency: "weekly", priority: 0.9 },
+    {
+      url: `${siteConfig.url}/schedule-and-packages/`,
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.9,
+      images: [img("/images/services/schedule-hero.jpeg")],
+    },
     { url: `${siteConfig.url}/contact/`, lastModified, changeFrequency: "yearly", priority: 0.7 },
     { url: `${siteConfig.url}/privacy-policy/`, lastModified, changeFrequency: "yearly", priority: 0.3 },
   ];
