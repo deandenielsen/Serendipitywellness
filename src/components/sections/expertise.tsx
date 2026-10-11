@@ -11,6 +11,7 @@ import { cn } from "@/lib/utils";
 const AREAS = [
   { label: "Yoga", src: "/images/Yoga.jpg", href: "/yoga/" },
   { label: "Therapeutic Massage", src: "/images/Therapeutic-Massage.jpg", href: "/therapeutic-massage/" },
+  { label: "Lymphatic Drainage", src: "/images/services/lymphatic-drainage-neck-massage.jpg", href: "/lymphatic-drainage-massage/" },
   { label: "Mindfulness & Meditation", src: "/images/Mindfulness-Meditation.jpg", href: "/mindfulness-meditation/" },
   { label: "Pre / Post Natal Yoga", src: "/images/Pre-_-Post-Natal-Yoga.jpg", href: "/pre-post-natal-yoga/" },
   { label: "Rehabilitation Yoga", src: "/images/Rehabilitation-Yoga.jpeg", href: "/rehabilitation-yoga/" },

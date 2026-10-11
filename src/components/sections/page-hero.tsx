@@ -23,7 +23,7 @@ function PageHero({ title, image, alt, nextId = "content" }: { title: string; im
         animate={{ scale: 1 }}
         transition={{ duration: 2.4, ease: [0.2, 0.7, 0.2, 1] }}
       >
-        <Image src={image} alt={alt} fill priority sizes="100vw" className="object-cover" />
+        <Image src={image} alt={alt} fill priority fetchPriority="high" sizes="100vw" className="object-cover" />
       </motion.div>
       <div aria-hidden="true" className="absolute inset-0 bg-black/45" />
 

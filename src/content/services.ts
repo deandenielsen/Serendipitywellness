@@ -468,12 +468,14 @@ export const services: Service[] = [
     slug: "lymphatic-drainage-massage",
     name: "Lymphatic Drainage",
     title: "Lymphatic Drainage",
-    seoTitle: "Lymphatic Drainage Massage in Edgemead, Cape Town | R550 Intro",
+    seoTitle: "Lymphatic Drainage Massage in Edgemead, Cape Town | From R550",
     seoDescription:
       "Gentle lymphatic drainage massage in Edgemead, Cape Town to reduce swelling and fluid retention and support recovery after surgery. Intro session with consultation R550, then R600 for 60 minutes.",
     serviceType: "Lymphatic drainage massage",
-    // Placeholder photos (shared with Therapeutic Massage) until studio photos are supplied.
-    hero: { src: `${S}/massage-hero.jpeg`, alt: "Client relaxing during a gentle massage treatment" },
+    hero: {
+      src: `${S}/lymphatic-drainage-massage-cape-town.jpg`,
+      alt: "Therapist giving a gentle lymphatic drainage massage to the neck and collarbone of a relaxed client",
+    },
     intro: {
       heading: "Lymphatic Drainage Massage",
       paragraphs: [
@@ -498,7 +500,10 @@ export const services: Service[] = [
           text: "Lymphatic drainage isn’t suitable for everyone, including people with acute infections, blood clots, heart conditions or active cancer. We’ll take you through a short health questionnaire before your first session.",
         },
       ],
-      image: { src: `${S}/massage-intro.jpg`, alt: "Therapist using light, gentle strokes on a client's shoulders" },
+      image: {
+        src: `${S}/lymphatic-drainage-leg-massage.jpg`,
+        alt: "Light lymphatic drainage strokes along a client's lower leg and ankle to reduce swelling",
+      },
     },
     sections: [],
     expect: {
@@ -514,7 +519,7 @@ export const services: Service[] = [
     ],
     cta: {
       text: "Book your intro session: R550 including consultation",
-      image: `${S}/massage-hero.jpeg`,
+      image: `${S}/calm-massage-treatment-room.jpg`,
       href: "https://booking.serendipitywellness.co.za/",
       label: "Check Availability",
     },
