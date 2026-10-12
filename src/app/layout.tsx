@@ -6,6 +6,8 @@ import { SiteFooter } from "@/components/layout/site-footer";
 import { WhatsAppButton } from "@/components/layout/whatsapp-button";
 import { PageLoader } from "@/components/layout/page-loader";
 import { TodoWidget } from "@/components/layout/todo-widget";
+import { Analytics } from "@/components/layout/analytics";
+import { CookieBanner } from "@/components/layout/cookie-banner";
 import { JsonLd } from "@/components/seo/json-ld";
 import { DEFAULT_OG_IMAGE, businessJsonLd } from "@/lib/seo";
 import "./globals.css";
@@ -88,6 +90,8 @@ export default function RootLayout({
         <SiteFooter />
         <WhatsAppButton />
         <TodoWidget />
+        <CookieBanner />
+        <Analytics />
         <PageLoader />
       </body>
     </html>
