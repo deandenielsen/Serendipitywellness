@@ -31,7 +31,7 @@ const STARTER: string[] = [
   "Real photos of Kerry and the studio",
   "Collect 4–6 testimonials",
   "Retreats page (when the next retreat is planned)",
-  "Add analytics (update privacy policy first)",
+  "Link Google Analytics to Search Console; mark key events",
 ];
 
 const newId = () => Math.random().toString(36).slice(2, 10);

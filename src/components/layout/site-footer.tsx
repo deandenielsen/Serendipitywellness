@@ -2,6 +2,7 @@ import Link from "next/link";
 import { SplitReveal } from "@/components/motion/split-reveal";
 import { WaveButton } from "@/components/ui/wave-button";
 import { siteConfig } from "@/lib/site-config";
+import { CookieSettingsLink } from "@/components/layout/cookie-settings-link";
 
 function SiteFooter() {
   const year = new Date().getFullYear();
@@ -84,9 +85,12 @@ function SiteFooter() {
         <p>
           © {year} {siteConfig.name}
         </p>
-        <Link prefetch={false} href={siteConfig.privacyHref} className="border-b border-current pb-px hover:text-brand-teal">
-          Privacy Policy
-        </Link>
+        <div className="flex gap-6">
+          <CookieSettingsLink className="border-b border-current pb-px hover:text-brand-teal" />
+          <Link prefetch={false} href={siteConfig.privacyHref} className="border-b border-current pb-px hover:text-brand-teal">
+            Privacy Policy
+          </Link>
+        </div>
       </div>
     </footer>
   );

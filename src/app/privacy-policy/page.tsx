@@ -1,11 +1,12 @@
 import Link from "next/link";
+import { CookieSettingsLink } from "@/components/layout/cookie-settings-link";
 import { JsonLd } from "@/components/seo/json-ld";
 import { siteConfig } from "@/lib/site-config";
 import { BUSINESS_ID, absoluteUrl, breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
 const PATH = "/privacy-policy/";
-const LAST_UPDATED = "6 October 2026";
-const LAST_UPDATED_ISO = "2026-10-06";
+const LAST_UPDATED = "12 October 2026";
+const LAST_UPDATED_ISO = "2026-10-12";
 
 export const metadata = pageMetadata({
   title: "Privacy Policy | Serendipity Wellness",
@@ -78,12 +79,29 @@ const sections: { id: string; heading: string; body: React.ReactNode }[] = [
     id: "cookies",
     heading: "3. Cookies and analytics",
     body: (
-      <p>
-        This website does not use advertising or analytics cookies and does not track you across other websites. Our
-        hosting provider keeps standard technical logs (such as IP address, browser type and the pages requested) for a
-        short period to keep the site secure and running. If we add analytics in future, we will update this policy
-        first.
-      </p>
+      <>
+        <p>
+          With your permission, we use <strong>Google Analytics</strong> to understand how visitors find and use this
+          website, for example which pages are visited, how long people stay, roughly where they are (city or region),
+          the type of device and browser, and whether they contact us or click through to book. Google Analytics sets
+          cookies to do this. The information is aggregated: we can&apos;t identify you from it, and we don&apos;t use it
+          for advertising.
+        </p>
+        <p>
+          Analytics cookies are only set after you click &ldquo;Accept&rdquo; on our cookie banner. You can change your
+          choice at any time using <CookieSettingsLink className="border-b border-current hover:text-brand-teal" /> at
+          the bottom of every page, or by clearing cookies in your browser. You can also install Google&apos;s{" "}
+          <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer">
+            Analytics opt-out add-on
+          </a>
+          .
+        </p>
+        <p>
+          We do not use advertising cookies or track you across other websites. A small amount of information is saved
+          in your browser to remember your cookie choice. Our hosting provider also keeps standard technical logs (such
+          as IP address, browser type and the pages requested) for a short period to keep the site secure and running.
+        </p>
+      </>
     ),
   },
   {
@@ -119,6 +137,9 @@ const sections: { id: string; heading: string; body: React.ReactNode }[] = [
           </li>
           <li>
             <strong>Resend</strong>, which delivers contact form messages to our inbox;
+          </li>
+          <li>
+            <strong>Google</strong>, which provides Google Analytics if you accept analytics cookies;
           </li>
           <li>
             <strong>WhatsApp (Meta)</strong>, if you choose to message us there.

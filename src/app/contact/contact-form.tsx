@@ -1,9 +1,10 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { sendContactMessage, type ContactState } from "./actions";
 import { cn } from "@/lib/utils";
+import { track } from "@/lib/analytics";
 
 const initialState: ContactState = { status: "idle" };
 
@@ -50,6 +51,11 @@ function Field({
 function ContactForm() {
   const [state, formAction, pending] = useActionState(sendContactMessage, initialState);
   const fields = state.status === "error" ? state.fields : undefined;
+
+  // A sent enquiry is the site's main conversion.
+  useEffect(() => {
+    if (state.status === "success") track("generate_lead", { form: "contact" });
+  }, [state.status]);
 
   return (
     <AnimatePresence mode="wait">
