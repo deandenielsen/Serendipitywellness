@@ -38,7 +38,7 @@ function PageHero({
       >
         <Image src={image} alt={alt} fill priority fetchPriority="high" sizes="100vw" className="object-cover" style={position ? { objectPosition: position } : undefined} />
       </motion.div>
-      <div aria-hidden="true" className="absolute inset-0 bg-black/45" />
+      <div aria-hidden="true" className="absolute inset-0 bg-hero/55" />
 
       <div className="relative px-6 pt-16 text-center">
         <LetterReveal

@@ -14,9 +14,9 @@ function SiteFooter() {
   ];
 
   return (
-    <footer className="bg-white">
+    <footer className="bg-page">
       <div className="px-6 sm:px-10 lg:px-[3.2vw]">
-        <hr className="border-black/10" />
+        <hr className="border-ink/10" />
       </div>
 
       <div className="grid gap-12 px-6 py-14 sm:px-10 md:grid-cols-2 lg:grid-cols-[36fr_22fr_16fr_26fr] lg:gap-x-0 lg:px-[8vw] lg:py-[4vw]">
@@ -34,7 +34,7 @@ function SiteFooter() {
           <ul className="mt-3 space-y-1 text-[15px] leading-[1.6] text-ink-soft">
             {services.map((item) => (
               <li key={item.href}>
-                <Link prefetch={false} href={item.href} className="hover:text-brand-teal">
+                <Link prefetch={false} href={item.href} className="hover:text-brand-deep">
                   {item.label}
                 </Link>
               </li>
@@ -56,15 +56,15 @@ function SiteFooter() {
         <div>
           <h3 className="script-heading text-[22px]">Connect</h3>
           <p className="mt-3 text-[15px] leading-[1.6] text-ink-soft">
-            T: <a href={contact.phoneHref} className="hover:text-brand-teal">{contact.phone}</a>
+            T: <a href={contact.phoneHref} className="hover:text-brand-deep">{contact.phone}</a>
             <br />
-            E: <a href={`mailto:${contact.email}`} className="hover:text-brand-teal">{contact.email}</a>
+            E: <a href={`mailto:${contact.email}`} className="hover:text-brand-deep">{contact.email}</a>
             <br />
             <a
               href={siteConfig.google.profileHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-brand-teal"
+              className="hover:text-brand-deep"
             >
               Find us on Google
             </a>
@@ -73,7 +73,7 @@ function SiteFooter() {
               href={siteConfig.google.reviewHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-brand-teal"
+              className="hover:text-brand-deep"
             >
               Leave a review
             </a>
@@ -86,8 +86,8 @@ function SiteFooter() {
           © {year} {siteConfig.name}
         </p>
         <div className="flex gap-6">
-          <CookieSettingsLink className="border-b border-current pb-px hover:text-brand-teal" />
-          <Link prefetch={false} href={siteConfig.privacyHref} className="border-b border-current pb-px hover:text-brand-teal">
+          <CookieSettingsLink className="border-b border-current pb-px hover:text-brand-deep" />
+          <Link prefetch={false} href={siteConfig.privacyHref} className="border-b border-current pb-px hover:text-brand-deep">
             Privacy Policy
           </Link>
         </div>

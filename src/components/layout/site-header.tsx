@@ -39,7 +39,7 @@ function SiteHeader() {
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-[background-color,box-shadow,color] duration-500",
         solid
-          ? "bg-white text-ink shadow-[0_3px_45px_rgba(0,0,0,0.15)]"
+          ? "bg-white text-ink shadow-[0_3px_45px_rgba(58,72,76,0.15)]"
           : "bg-transparent text-white",
       )}
     >
@@ -49,21 +49,21 @@ function SiteHeader() {
           scrolled ? "h-[72px] lg:h-[90px]" : "h-[80px] lg:h-[128px]",
         )}
       >
-        <Link prefetch={false} href="/" aria-label={siteConfig.name} className="relative block h-[60px] w-[120px] lg:h-[75px] lg:w-[150px]">
+        <Link prefetch={false} href="/" aria-label={siteConfig.name} className="relative block h-[54px] w-[150px] lg:h-[65px] lg:w-[180px]">
           <Image
-            src="/images/Web-Logo-White.png"
+            src="/images/brand/logo-horizontal-white.png"
             alt=""
             fill
             priority
-            sizes="150px"
+            sizes="180px"
             className={cn("object-contain transition-opacity duration-500", solid ? "opacity-0" : "opacity-100")}
           />
           <Image
-            src="/images/Web-Logo.png"
+            src="/images/brand/logo-horizontal.png"
             alt={siteConfig.name}
             fill
             priority
-            sizes="150px"
+            sizes="180px"
             className={cn("object-contain transition-opacity duration-500", solid ? "opacity-100" : "opacity-0")}
           />
         </Link>
@@ -83,12 +83,12 @@ function SiteHeader() {
                   {item.label}
                   <ChevronDown size={14} strokeWidth={1.75} />
                 </button>
-                <div className="invisible absolute left-1/2 top-full min-w-[230px] -translate-x-1/2 translate-y-2 rounded-[6px] bg-white py-3 text-ink opacity-0 shadow-[0_15px_45px_rgba(0,0,0,0.15)] transition-all duration-300 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+                <div className="invisible absolute left-1/2 top-full min-w-[230px] -translate-x-1/2 translate-y-2 rounded-[6px] bg-white py-3 text-ink opacity-0 shadow-[0_15px_45px_rgba(58,72,76,0.15)] transition-all duration-300 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
                   {item.children.map((child) => (
                     <Link prefetch={false}
                       key={child.href + child.label}
                       href={child.href}
-                      className="block px-6 py-2 leading-[22px] transition-colors hover:text-brand-teal"
+                      className="block px-6 py-2 leading-[22px] transition-colors hover:text-brand-deep"
                     >
                       {child.label}
                     </Link>

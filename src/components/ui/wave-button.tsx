@@ -12,7 +12,7 @@ function WaveButton({ href, label, className }: { href: string; label: string; c
       href={href}
       aria-label={label}
       className={cn(
-        "group inline-flex items-center rounded-full bg-gradient-to-r from-brand-teal to-brand-violet px-[35px] py-[15px] text-[18px] leading-[30px] tracking-[0.05em] text-white transition-[filter,box-shadow] duration-300 hover:shadow-[0_10px_30px_rgba(60,60,140,0.3)]",
+        "group inline-flex items-center rounded-full bg-gradient-to-r from-ink to-brand-deep px-[35px] py-[15px] text-[18px] leading-[30px] tracking-[0.05em] text-white transition-[filter,box-shadow] duration-300 hover:shadow-[0_10px_30px_rgba(58,72,76,0.35)]",
         className,
       )}
     >

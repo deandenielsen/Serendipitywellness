@@ -99,7 +99,7 @@ export default async function ServicePage({ params }: Props) {
                 <a
                   key={l.href}
                   href={l.href}
-                  className="script-heading rounded-full border border-black/15 px-6 py-2 text-[20px] transition-colors hover:border-black"
+                  className="script-heading rounded-full border border-ink/15 px-6 py-2 text-[20px] transition-colors hover:border-ink"
                 >
                   {l.label}
                 </a>

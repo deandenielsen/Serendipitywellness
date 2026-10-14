@@ -34,7 +34,7 @@ function Hero() {
           className="object-cover object-left-top"
         />
       </motion.div>
-      <div aria-hidden="true" className="absolute inset-0 bg-black/[0.62]" />
+      <div aria-hidden="true" className="absolute inset-0 bg-hero/[0.66]" />
 
       <div className="relative px-6 text-center">
         <SplitReveal

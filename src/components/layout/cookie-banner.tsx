@@ -38,17 +38,18 @@ function CookieBanner() {
         <motion.div
           role="region"
           aria-label="Cookie consent"
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 24 }}
+          // Slide only (no fade) so the text is always at full contrast.
+          initial={{ y: "calc(100% + 40px)" }}
+          animate={{ y: 0 }}
+          exit={{ y: "calc(100% + 40px)" }}
           transition={{ duration: 0.35, ease: "easeOut" }}
-          className="fixed inset-x-4 bottom-4 z-[60] rounded-[10px] bg-white p-5 text-ink shadow-[0_20px_60px_rgba(0,0,0,0.25)] sm:inset-x-auto sm:left-[30px] sm:bottom-[30px] sm:max-w-[400px]"
+          className="fixed inset-x-4 bottom-4 z-[60] rounded-[10px] bg-white p-5 text-ink shadow-[0_20px_60px_rgba(58,72,76,0.25)] sm:inset-x-auto sm:left-[30px] sm:bottom-[30px] sm:max-w-[400px]"
         >
           <p className="script-heading text-[24px]">A quick note on cookies</p>
           <p className="mt-2 text-[14px] leading-[1.6] text-ink-soft">
             We&apos;d like to use Google Analytics cookies to see how people find and use our site, so we can keep
             improving it. No advertising, and we never sell your data.{" "}
-            <Link prefetch={false} href={`${siteConfig.privacyHref}#cookies`} className="border-b border-current hover:text-brand-teal">
+            <Link prefetch={false} href={`${siteConfig.privacyHref}#cookies`} className="border-b border-current hover:text-brand-deep">
               Privacy policy
             </Link>
           </p>
@@ -56,14 +57,14 @@ function CookieBanner() {
             <button
               type="button"
               onClick={() => choose("granted")}
-              className="flex-1 rounded-full bg-[#333] px-5 py-2.5 text-[14px] font-medium text-white transition-colors hover:bg-black"
+              className="flex-1 rounded-full bg-ink px-5 py-2.5 text-[14px] font-medium text-white transition-colors hover:bg-hero"
             >
               Accept
             </button>
             <button
               type="button"
               onClick={() => choose("denied")}
-              className="flex-1 rounded-full border border-black/20 px-5 py-2.5 text-[14px] font-medium transition-colors hover:border-black"
+              className="flex-1 rounded-full border border-ink/20 px-5 py-2.5 text-[14px] font-medium transition-colors hover:border-ink"
             >
               No thanks
             </button>
