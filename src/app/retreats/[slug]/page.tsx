@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, CalendarPlus, ExternalLink, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
-import { getRetreat, retreats } from "@/content/retreats";
+import { getRetreat, isFullyBooked, retreats } from "@/content/retreats";
 import { SplitReveal } from "@/components/motion/split-reveal";
 import { ParallaxImage, ScrollFloat } from "@/components/motion/parallax";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -41,7 +41,12 @@ export default async function RetreatPage({ params }: Props) {
   const path = `/retreats/${retreat.slug}/`;
   const { venue } = retreat;
   const whatsapp = `${siteConfig.contact.whatsappHref}?text=${encodeURIComponent(retreat.whatsappMessage)}`;
-  const directions = `https://www.google.com/maps/dir/?api=1&destination=${venue.lat},${venue.lng}`;
+  const fullyBooked = isFullyBooked(retreat);
+  const address = [venue.street, venue.area !== venue.city && venue.area, venue.city].filter(Boolean).join(", ");
+  const destination =
+    venue.lat !== undefined && venue.lng !== undefined ? `${venue.lat},${venue.lng}` : encodeURIComponent(`${venue.name}, ${address}`);
+  const directions = `https://www.google.com/maps/dir/?api=1&destination=${destination}`;
+  const rand = (amount: number) => `R${amount.toLocaleString("en-ZA")}`;
 
   return (
     <>
@@ -73,6 +78,11 @@ export default async function RetreatPage({ params }: Props) {
           className="absolute inset-0 bg-[linear-gradient(100deg,rgba(58,72,76,0.94)_0%,rgba(74,91,95,0.82)_42%,rgba(74,91,95,0.25)_100%)]"
         />
         <div className="relative w-full px-6 pb-16 pt-36 sm:px-10 lg:px-[8vw] lg:pb-[6vw]">
+          {fullyBooked && (
+            <p className="mb-5 inline-flex rounded-full bg-white px-4 py-1.5 text-[13px] font-semibold uppercase tracking-[0.14em] text-[var(--retreat-slate-dark)]">
+              Fully booked
+            </p>
+          )}
           <p className="text-[13px] font-medium uppercase tracking-[0.28em] text-white/85">{retreat.eyebrow}</p>
           <h1 className="retreat-serif mt-5 text-[64px] leading-[0.95] sm:text-[84px] lg:text-[7.4vw]">
             <SplitReveal as="span" immediate delay={0.5} text={retreat.headline[0]} className="block" />
@@ -99,7 +109,11 @@ export default async function RetreatPage({ params }: Props) {
             {[
               { label: "When", value: retreat.when.short, note: retreat.when.long },
               { label: "Time", value: retreat.time.short, note: retreat.time.note },
-              { label: "Investment", value: `R${retreat.price.amount.toLocaleString("en-ZA")}`, note: retreat.price.note },
+              {
+                label: "Investment",
+                value: `${retreat.price.options ? "From " : ""}${rand(retreat.price.amount)}`,
+                note: retreat.price.note,
+              },
             ].map((item) => (
               <div key={item.label}>
                 <dt>
@@ -114,19 +128,71 @@ export default async function RetreatPage({ params }: Props) {
 
         {/* What to expect */}
         <section className="px-6 py-16 sm:px-10 lg:px-[8vw] lg:py-[5vw]">
-          <SplitReveal as="h2" text="What to expect" className="retreat-serif text-[52px] leading-none lg:text-[4.2vw]" />
+          <SplitReveal
+            as="h2"
+            text={retreat.expectHeading ?? "What to expect"}
+            className="retreat-serif text-[52px] leading-none lg:text-[4.2vw]"
+          />
           <ul className="mt-10 grid gap-x-16 gap-y-9 sm:grid-cols-2 lg:mt-[3vw]">
             {retreat.expect.map((item) => (
               <li key={item.title} className="flex gap-5">
                 <span aria-hidden="true" className="mt-[11px] h-2 w-2 shrink-0 rounded-full bg-[var(--retreat-sage)]" />
                 <div>
                   <h3 className="text-[22px] font-medium leading-[1.3] lg:text-[24px]">{item.title}</h3>
-                  <p className="mt-1 text-[16px] text-[var(--retreat-slate)]">{item.text}</p>
+                  {item.text && <p className="mt-1 text-[16px] text-[var(--retreat-slate)]">{item.text}</p>}
                 </div>
               </li>
             ))}
           </ul>
         </section>
+
+        {retreat.extras && (
+          <section className="px-6 pb-16 sm:px-10 lg:px-[8vw] lg:pb-[5vw]">
+            <div className="border-t border-[var(--retreat-sage)]/40 pt-12 lg:pt-[3vw]">
+              <Label>{retreat.extras.heading}</Label>
+              <ul className="mt-6 grid gap-x-16 gap-y-4 text-[20px] sm:grid-cols-2 lg:text-[22px]">
+                {retreat.extras.items.map((item) => (
+                  <li key={item.label}>
+                    {item.href ? (
+                      <Link prefetch={false} href={item.href} className="border-b border-current pb-0.5 hover:opacity-70">
+                        {item.label}
+                      </Link>
+                    ) : (
+                      item.label
+                    )}
+                  </li>
+                ))}
+              </ul>
+              {retreat.extras.note && (
+                <p className="mt-6 text-[15px] italic text-[var(--retreat-slate)]">{retreat.extras.note}</p>
+              )}
+            </div>
+          </section>
+        )}
+
+        {retreat.price.options && (
+          <section aria-label="Pricing" className="px-4 pb-16 sm:px-10 lg:px-[8vw] lg:pb-[5vw]">
+            <div className="flex flex-col gap-8 rounded-[18px] bg-[var(--retreat-slate-dark)] px-7 py-9 text-white sm:flex-row sm:items-center sm:gap-12 lg:px-12">
+              <dl className="flex flex-wrap gap-x-12 gap-y-6">
+                {retreat.price.options.map((option) => (
+                  <div key={option.label}>
+                    <dd className="retreat-serif text-[46px] leading-none lg:text-[3.4vw]">{rand(option.amount)}</dd>
+                    <dt className="mt-2 text-[15px] text-white/80">{option.label}</dt>
+                  </div>
+                ))}
+              </dl>
+              {retreat.price.deposit && (
+                <div className="border-white/25 sm:ml-auto sm:border-l sm:pl-12">
+                  <p className="text-[20px] font-medium">{rand(retreat.price.deposit.amount)} deposit</p>
+                  <p className="mt-1 text-[15px] text-white/80">{retreat.price.deposit.note}</p>
+                </div>
+              )}
+            </div>
+            {retreat.price.paymentNote && (
+              <p className="mt-4 px-2 text-[15px] text-[var(--retreat-slate)]">{retreat.price.paymentNote}</p>
+            )}
+          </section>
+        )}
 
         {/* The venue */}
         <section className="px-6 pb-16 sm:px-10 lg:px-[8vw] lg:pb-[5vw]">
@@ -136,7 +202,7 @@ export default async function RetreatPage({ params }: Props) {
               <SplitReveal as="h2" text={venue.name} className="retreat-serif mt-4 text-[48px] leading-none lg:text-[3.8vw]" />
               <p className="mt-6 text-[16px] leading-[1.75]">{venue.description}</p>
               <address className="mt-6 text-[15px] not-italic leading-[1.7] text-[var(--retreat-slate)]">
-                {venue.street}, {venue.area}, {venue.city}
+                {address}
               </address>
               <div className="mt-6 flex flex-wrap gap-x-6 gap-y-3 text-[15px] font-medium">
                 <a href={directions} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border-b border-current pb-0.5 hover:opacity-70">
@@ -171,9 +237,15 @@ export default async function RetreatPage({ params }: Props) {
         {/* Reserve */}
         <section id="reserve" className="scroll-mt-28 px-4 pb-20 sm:px-10 lg:px-[8vw] lg:pb-[6vw]">
           <div className="rounded-[18px] bg-[var(--retreat-mist)] px-6 py-12 text-center sm:px-12 lg:py-[4vw]">
-            <SplitReveal as="h2" text="Reserve your place" className="retreat-serif text-[52px] leading-none lg:text-[4.2vw]" />
+            <SplitReveal
+              as="h2"
+              text={fullyBooked ? "This retreat is fully booked" : "Reserve your place"}
+              className="retreat-serif text-[52px] leading-none lg:text-[4.2vw]"
+            />
             <p className="mx-auto mt-5 max-w-[520px] text-[16px] leading-[1.7]">
-              Message us on WhatsApp to reserve your spot, or get in touch with any questions about the day.
+              {fullyBooked
+                ? "Thank you to everyone joining us! Message us on WhatsApp to go on the waiting list, or to hear first when the next retreat opens."
+                : "Message us on WhatsApp to reserve your spot, or get in touch with any questions about the day."}
             </p>
             <div className="mx-auto mt-8 flex max-w-[560px] flex-col gap-3 sm:flex-row">
               <a
@@ -182,7 +254,7 @@ export default async function RetreatPage({ params }: Props) {
                 rel="noopener noreferrer"
                 className="flex flex-1 items-center justify-center gap-2.5 rounded-[12px] bg-[var(--retreat-slate)] px-6 py-4 text-[16px] font-medium text-white transition-colors hover:bg-[var(--retreat-slate-dark)]"
               >
-                <MessageCircle size={19} /> Reserve on WhatsApp
+                <MessageCircle size={19} /> {fullyBooked ? "Join the waiting list" : "Reserve on WhatsApp"}
               </a>
               <Link
                 prefetch={false}

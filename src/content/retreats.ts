@@ -1,7 +1,8 @@
 /**
  * Retreats. Add a new object to `retreats` to publish another one: it appears on /retreats/
  * and gets its own page at /retreats/<slug>/. Retreats drop off the listing automatically
- * the day after they end.
+ * the day after they end. Set `status: "fully-booked"` to show a Fully Booked badge and
+ * swap booking for a waiting list.
  */
 
 export type Retreat = {
@@ -15,20 +16,34 @@ export type Retreat = {
   intro: string;
   seoTitle: string;
   seoDescription: string;
-  /** ISO 8601 with the South African offset, e.g. 2026-12-12T08:30:00+02:00. */
+  status?: "fully-booked";
+  /**
+   * ISO 8601 with the South African offset, e.g. 2026-12-12T08:30:00+02:00, or a plain date
+   * (2026-11-06) for multi-day retreats without set times.
+   */
   start: string;
   end: string;
   when: { short: string; long: string };
   time: { short: string; note: string };
-  price: { amount: number; note: string };
-  expect: { title: string; text: string }[];
+  /** `amount` is the headline (lowest) price; `options` lists each price when there's more than one. */
+  price: {
+    amount: number;
+    note: string;
+    options?: { label: string; amount: number }[];
+    deposit?: { amount: number; note: string };
+    paymentNote?: string;
+  };
+  expectHeading?: string;
+  expect: { title: string; text?: string }[];
+  /** Optional extras, e.g. treatments bookable on the weekend. */
+  extras?: { heading: string; items: { label: string; href?: string }[]; note?: string };
   venue: {
     name: string;
     area: string;
     street: string;
     city: string;
-    lat: number;
-    lng: number;
+    lat?: number;
+    lng?: number;
     website?: string;
     description: string;
   };
@@ -41,6 +56,74 @@ export type Retreat = {
 const R = "/images/retreats";
 
 export const retreats: Retreat[] = [
+  {
+    slug: "blue-butterfly-wellness-weekend-2026",
+    name: "Blue Butterfly Wellness Weekend",
+    eyebrow: "A Serendipity Wellness & SolYoga retreat",
+    headline: ["Blue Butterfly", "Wellness Weekend."],
+    intro:
+      "Needing a breather before the chaos of end-of-year madness? Slip away to the mountains to move gently, rest deeply, and come home to yourself.",
+    seoTitle: "Blue Butterfly Wellness Weekend, Tulbagh | 6–8 Nov | Yoga Retreat",
+    seoDescription:
+      "A weekend yoga and wellness retreat with Serendipity Wellness and SolYoga at Welbedacht Nature Reserve, Tulbagh, 6–8 November: 2 nights, meals, 3 yoga classes, hiking and a fire ceremony. Fully booked.",
+    status: "fully-booked",
+    start: "2026-11-06",
+    end: "2026-11-08",
+    when: { short: "6–8 Nov", long: "Friday 6 – Sunday 8 November 2026" },
+    time: { short: "2 nights", note: "Friday to Sunday" },
+    price: {
+      amount: 3200,
+      note: "Sharing, or R4 800 for a private room",
+      options: [
+        { label: "Sharing", amount: 3200 },
+        { label: "Private room", amount: 4800 },
+      ],
+      deposit: { amount: 900, note: "secures your spot" },
+      paymentNote: "Balance paid over 4 months, starting end of July.",
+    },
+    expectHeading: "What’s included",
+    expect: [
+      { title: "2 nights’ accommodation" },
+      { title: "2 breakfasts & 2 dinners" },
+      { title: "3 yoga classes" },
+      { title: "Plenty of free time to relax" },
+      { title: "Hiking trails through the nature reserve" },
+      { title: "Fire ceremony" },
+    ],
+    extras: {
+      heading: "Treatments available at a discounted rate",
+      items: [
+        { label: "Aromatherapy massage" },
+        { label: "Reflexology", href: "/reflexology/" },
+        { label: "Reiki" },
+        { label: "Lomi Lomi massage" },
+      ],
+      note: "Optional treatments, bookable on the weekend.",
+    },
+    venue: {
+      name: "Welbedacht Nature Reserve",
+      area: "Tulbagh",
+      street: "Winterhoek Road",
+      city: "Tulbagh",
+      website: "https://www.welbedachtreserve.co.za/groups--retreats.html",
+      description:
+        "We stay at the Blue Butterfly, a restored thatched barn in Welbedacht Game & Nature Reserve, surrounded by the Winterhoek Mountains in the Tulbagh Valley, with a studio, farm kitchen, pool, gardens and walking trails right on the doorstep.",
+    },
+    hero: {
+      src: `${R}/welbedacht-tulbagh-mountains-pool.jpg`,
+      alt: "Pool, lawn and white cottage below the Winterhoek Mountains at Welbedacht Nature Reserve, Tulbagh",
+      position: "center 28%",
+    },
+    // Venue photos from welbedachtreserve.co.za.
+    gallery: [
+      { src: `${R}/blue-butterfly-thatched-barn.jpg`, alt: "The Blue Butterfly thatched barn and lawn at Welbedacht Nature Reserve" },
+      { src: `${R}/blue-butterfly-studio-lounge.jpg`, alt: "Studio and lounge inside the Blue Butterfly barn" },
+      { src: `${R}/blue-butterfly-farm-kitchen.jpg`, alt: "Farm-style kitchen and dining table at the Blue Butterfly" },
+      { src: `${R}/blue-butterfly-bedroom.jpg`, alt: "En-suite bedroom under the thatch at the Blue Butterfly" },
+    ],
+    whatsappMessage:
+      "Hi! The Blue Butterfly Wellness Weekend (6–8 November) is fully booked. Please add me to the waiting list, and let me know about future weekend retreats.",
+  },
   {
     slug: "end-of-year-retreat-2026",
     name: "End of Year Wellness Half-Day Retreat",
@@ -91,9 +174,15 @@ export const retreats: Retreat[] = [
 
 export const getRetreat = (slug: string) => retreats.find((r) => r.slug === slug);
 
+export const isFullyBooked = (r: Retreat) => r.status === "fully-booked";
+
+/** Plain dates (no time) mean the retreat runs all day; it ends at the close of that day in SA. */
+export const isAllDay = (r: Retreat) => r.start.length === 10;
+const endInstant = (r: Retreat) => new Date(isAllDay(r) ? `${r.end}T23:59:59+02:00` : r.end);
+
 /** Retreats that haven't finished yet, soonest first. */
 export function upcomingRetreats(now = new Date()) {
   return retreats
-    .filter((r) => new Date(r.end) >= now)
+    .filter((r) => endInstant(r) >= now)
     .sort((a, b) => a.start.localeCompare(b.start));
 }
