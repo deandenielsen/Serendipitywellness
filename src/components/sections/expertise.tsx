@@ -153,7 +153,7 @@ function Expertise() {
                   sizes="(min-width: 1024px) 28vw, 78vw"
                   className="pointer-events-none aspect-[390/575] transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                 />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent from-55% to-black/45" />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent from-55% to-hero/70" />
                 <h4 className="script-heading absolute bottom-7 left-7 text-[22px] text-white lg:bottom-[2.6vw] lg:left-[2vw]">
                   {area.label}
                 </h4>
@@ -183,7 +183,7 @@ function Expertise() {
               <span
                 className={cn(
                   "block h-[7px] rounded-full transition-all duration-500",
-                  active === i ? "w-6 bg-black" : "w-[7px] bg-black/25 group-hover:bg-black/50",
+                  active === i ? "w-6 bg-ink" : "w-[7px] bg-brand group-hover:bg-brand-deep",
                 )}
               />
             </button>
@@ -221,7 +221,7 @@ function ControlButton({
       aria-label={label}
       onClick={onClick}
       className={cn(
-        "flex items-center justify-center rounded-full border border-black/15 transition-colors duration-300 hover:border-black hover:bg-black hover:text-white",
+        "flex items-center justify-center rounded-full border border-ink/15 transition-colors duration-300 hover:border-ink hover:bg-hero hover:text-white",
         small ? "h-9 w-9" : "h-12 w-12",
       )}
     >

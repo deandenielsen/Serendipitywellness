@@ -1,13 +1,18 @@
 @import "tailwindcss";
 
-/* Tokens match the live WordPress site (Salient theme) so the rebuild is like for like. */
+/*
+ * Brand palette (2026): primary #91b5bc, copy #4a5b5f, secondary #cde7ea, background #f7f7f7.
+ * Primary is too light for text (2:1), so it's used for accents and fills; text uses ink,
+ * and links/hovers that need a teal use brand-deep (4.5:1 on the background).
+ */
 :root {
-  --color-ink: #000000;
-  --color-ink-soft: #3a3a3a;
-  --color-page: #ffffff;
-  --color-hero: #2b323a;
-  --color-brand-teal: #1a8a9a;
-  --color-brand-violet: #6a3fa0;
+  --color-ink: #4a5b5f;
+  --color-ink-soft: #5c6f74;
+  --color-page: #f7f7f7;
+  --color-hero: #3a484c;
+  --color-brand: #91b5bc;
+  --color-brand-mist: #cde7ea;
+  --color-brand-deep: #4e7880;
   --color-whatsapp: #2db742;
 
   --gutter: 8vw;
@@ -19,15 +24,16 @@
   --color-ink-soft: var(--color-ink-soft);
   --color-page: var(--color-page);
   --color-hero: var(--color-hero);
-  --color-brand-teal: var(--color-brand-teal);
-  --color-brand-violet: var(--color-brand-violet);
+  --color-brand: var(--color-brand);
+  --color-brand-mist: var(--color-brand-mist);
+  --color-brand-deep: var(--color-brand-deep);
   --color-whatsapp: var(--color-whatsapp);
 
   --font-sans: var(--font-public-sans);
   --font-script: var(--font-playball);
   --font-display: var(--font-urbanist);
 
-  --shadow-depth: 0 30px 90px rgba(0, 0, 0, 0.14);
+  --shadow-depth: 0 30px 90px rgba(58, 72, 76, 0.16);
 }
 
 html {
@@ -83,11 +89,11 @@ body {
 
 /* Retreat pages: palette and serif from the retreat flyers. */
 .retreat-theme {
-  --retreat-slate: #46585e;
-  --retreat-slate-dark: #34444a;
-  --retreat-mist: #cfe6e9;
-  --retreat-sage: #8db3b8;
-  --retreat-paper: #f6f7f7;
+  --retreat-slate: var(--color-ink);
+  --retreat-slate-dark: var(--color-hero);
+  --retreat-mist: var(--color-brand-mist);
+  --retreat-sage: var(--color-brand);
+  --retreat-paper: var(--color-page);
 }
 .retreat-serif {
   font-family: var(--font-retreat-serif), Georgia, serif;

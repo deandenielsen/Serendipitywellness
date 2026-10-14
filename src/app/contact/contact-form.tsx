@@ -9,7 +9,7 @@ import { track } from "@/lib/analytics";
 const initialState: ContactState = { status: "idle" };
 
 const inputClass =
-  "mt-2 w-full rounded-[4px] border border-black/20 bg-white px-3 py-3 text-[15px] outline-none transition-colors focus:border-black aria-[invalid=true]:border-red-500";
+  "mt-2 w-full rounded-[4px] border border-ink/20 bg-white px-3 py-3 text-[15px] outline-none transition-colors focus:border-ink aria-[invalid=true]:border-red-500";
 
 function Field({
   label,
@@ -103,7 +103,7 @@ function ContactForm() {
             <button
               type="submit"
               disabled={pending}
-              className="rounded-full bg-[#333] px-9 py-3 text-[15px] font-medium text-white transition-[background-color,transform] duration-300 hover:scale-[1.03] hover:bg-black disabled:cursor-wait disabled:opacity-60"
+              className="rounded-full bg-ink px-9 py-3 text-[15px] font-medium text-white transition-[background-color,transform] duration-300 hover:scale-[1.03] hover:bg-hero disabled:cursor-wait disabled:opacity-60"
             >
               {pending ? "Sending…" : "Send Message"}
             </button>

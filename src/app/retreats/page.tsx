@@ -71,7 +71,7 @@ export default function RetreatsPage() {
                     prefetch={false}
                     href={`/retreats/${r.slug}/`}
                     className={cn(
-                      "group block h-full overflow-hidden rounded-[14px] bg-white shadow-[0_20px_50px_rgba(52,68,74,0.10)] transition-shadow duration-500 hover:shadow-[0_28px_70px_rgba(52,68,74,0.18)]",
+                      "group block h-full overflow-hidden rounded-[14px] bg-white shadow-[0_20px_50px_rgba(58,72,76,0.10)] transition-shadow duration-500 hover:shadow-[0_28px_70px_rgba(58,72,76,0.18)]",
                       i === 0 && "md:grid md:grid-cols-[1.15fr_1fr]",
                     )}
                   >

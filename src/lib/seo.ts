@@ -55,7 +55,7 @@ export function businessJsonLd() {
         name: siteConfig.name,
         description: siteConfig.description,
         url: siteConfig.url,
-        logo: absoluteUrl("/images/Web-Logo.png"),
+        logo: absoluteUrl("/images/brand/logo-stacked.png"),
         image: absoluteUrl("/images/Serendipity-Wellness-About-Us.jpg"),
         telephone: siteConfig.contact.phone,
         email: siteConfig.contact.email,

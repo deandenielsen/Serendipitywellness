@@ -111,9 +111,9 @@ function TodoWidget() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 12, scale: 0.98 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className="fixed bottom-[170px] right-4 z-50 flex max-h-[min(70vh,560px)] w-[calc(100vw-32px)] max-w-[380px] origin-bottom-right flex-col overflow-hidden rounded-[10px] bg-white text-ink shadow-[0_20px_60px_rgba(0,0,0,0.25)] sm:right-[30px]"
+            className="fixed bottom-[170px] right-4 z-50 flex max-h-[min(70vh,560px)] w-[calc(100vw-32px)] max-w-[380px] origin-bottom-right flex-col overflow-hidden rounded-[10px] bg-white text-ink shadow-[0_20px_60px_rgba(58,72,76,0.25)] sm:right-[30px]"
           >
-            <header className="flex items-center justify-between border-b border-black/10 px-5 py-4">
+            <header className="flex items-center justify-between border-b border-ink/10 px-5 py-4">
               <div>
                 <h2 className="text-[16px] font-semibold">To do</h2>
                 <p className="text-[13px] text-ink-soft">
@@ -124,7 +124,7 @@ function TodoWidget() {
                 type="button"
                 aria-label="Close to-do list"
                 onClick={() => setOpen(false)}
-                className="flex h-9 w-9 items-center justify-center rounded-full hover:bg-black/5"
+                className="flex h-9 w-9 items-center justify-center rounded-full hover:bg-ink/5"
               >
                 <X size={18} />
               </button>
@@ -133,7 +133,7 @@ function TodoWidget() {
             <ul className="flex-1 overflow-y-auto px-2 py-2">
               {todos.length === 0 && <li className="px-3 py-6 text-center text-[14px] text-ink-soft">Nothing on the list.</li>}
               {todos.map((t) => (
-                <li key={t.id} className="group flex items-start gap-3 rounded-[6px] px-3 py-2 hover:bg-black/[0.03]">
+                <li key={t.id} className="group flex items-start gap-3 rounded-[6px] px-3 py-2 hover:bg-brand-mist/40">
                   <button
                     type="button"
                     role="checkbox"
@@ -142,7 +142,7 @@ function TodoWidget() {
                     onClick={() => update(t.id, { done: !t.done })}
                     className={cn(
                       "mt-[2px] flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded-[4px] border transition-colors",
-                      t.done ? "border-brand-teal bg-brand-teal text-white" : "border-black/30 hover:border-black",
+                      t.done ? "border-brand-deep bg-brand-deep text-white" : "border-ink/30 hover:border-ink",
                     )}
                   >
                     {t.done && <Check size={13} strokeWidth={3} />}
@@ -165,7 +165,7 @@ function TodoWidget() {
                           setEditingId(null);
                         }
                       }}
-                      className="flex-1 rounded-[4px] border border-black/20 px-2 py-0.5 text-[14px] leading-[1.5] outline-none focus:border-black"
+                      className="flex-1 rounded-[4px] border border-ink/20 px-2 py-0.5 text-[14px] leading-[1.5] outline-none focus:border-ink"
                     />
                   ) : (
                     <button
@@ -193,19 +193,19 @@ function TodoWidget() {
               ))}
             </ul>
 
-            <form onSubmit={add} className="flex gap-2 border-t border-black/10 p-3">
+            <form onSubmit={add} className="flex gap-2 border-t border-ink/10 p-3">
               <input
                 ref={inputRef}
                 value={draft}
                 onChange={(e) => setDraft(e.target.value)}
                 placeholder="Add a to-do…"
                 aria-label="New to-do"
-                className="flex-1 rounded-full border border-black/20 px-4 py-2 text-[14px] outline-none focus:border-black"
+                className="flex-1 rounded-full border border-ink/20 px-4 py-2 text-[14px] outline-none focus:border-ink"
               />
               <button
                 type="submit"
                 aria-label="Add to-do"
-                className="flex h-[38px] w-[38px] items-center justify-center rounded-full bg-[#333] text-white transition-colors hover:bg-black"
+                className="flex h-[38px] w-[38px] items-center justify-center rounded-full bg-ink text-white transition-colors hover:bg-hero"
               >
                 <Plus size={18} />
               </button>
@@ -215,7 +215,7 @@ function TodoWidget() {
               <button
                 type="button"
                 onClick={() => setTodos((list) => list.filter((t) => !t.done))}
-                className="border-t border-black/10 py-2.5 text-[13px] text-ink-soft hover:text-ink"
+                className="border-t border-ink/10 py-2.5 text-[13px] text-ink-soft hover:text-ink"
               >
                 Clear {doneCount} completed
               </button>
@@ -230,13 +230,13 @@ function TodoWidget() {
         aria-label={open ? "Close to-do list" : `Open to-do list (${remaining} left)`}
         aria-expanded={open}
         onClick={() => setOpen((v) => !v)}
-        className="fixed bottom-[100px] right-[34px] z-50 flex h-[48px] w-[48px] items-center justify-center rounded-full bg-[#333] text-white shadow-[0_4px_12px_rgba(0,0,0,0.2)] transition-transform duration-300 hover:scale-105"
+        className="fixed bottom-[100px] right-[34px] z-50 flex h-[48px] w-[48px] items-center justify-center rounded-full bg-ink text-white shadow-[0_4px_12px_rgba(58,72,76,0.2)] transition-transform duration-300 hover:scale-105"
       >
         {open ? <X size={20} /> : <ListTodo size={20} />}
         {!open && remaining > 0 && (
           <span
             aria-hidden="true"
-            className="absolute -right-1 -top-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-[#11707d] px-1 text-[11px] font-semibold"
+            className="absolute -right-1 -top-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-brand-deep px-1 text-[11px] font-semibold"
           >
             {remaining}
           </span>

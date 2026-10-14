@@ -73,7 +73,7 @@ function PhotoCard({ src, alt }: { src: string; alt: string }) {
         alt={alt}
         distance={30}
         sizes="(min-width: 1024px) 42vw, 90vw"
-        className="aspect-square rounded-[10px] shadow-[0_30px_90px_rgba(0,0,0,0.16)]"
+        className="aspect-square rounded-[10px] shadow-[0_30px_90px_rgba(58,72,76,0.16)]"
       />
     </ScrollFloat>
   );

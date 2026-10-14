@@ -56,7 +56,7 @@ export default function ContactPage() {
       <section className="relative pt-[72px] lg:pt-[90px]">
         <div
           aria-hidden="true"
-          className="absolute inset-x-0 top-0 h-[560px] bg-[linear-gradient(120deg,#4f63f5_0%,#8a4fd8_45%,#ff3d7f_100%)] lg:h-[620px]"
+          className="absolute inset-x-0 top-0 h-[560px] bg-[linear-gradient(120deg,var(--color-hero)_0%,var(--color-brand-deep)_55%,var(--color-brand)_100%)] lg:h-[620px]"
         />
         <div className="relative px-6 pb-10 pt-16 text-center text-white lg:pt-[4vw]">
           <p className="text-[17px] tracking-[0.03em] opacity-90">Contact me with any questions you might have…</p>
@@ -73,7 +73,7 @@ export default function ContactPage() {
         </div>
 
         <div className="relative mx-auto max-w-[850px] px-4 pb-16 lg:pb-[6vw]">
-          <div className="rounded-[10px] bg-white px-6 py-8 shadow-[0_30px_90px_rgba(0,0,0,0.16)] md:px-9 md:py-10">
+          <div className="rounded-[10px] bg-white px-6 py-8 shadow-[0_30px_90px_rgba(58,72,76,0.16)] md:px-9 md:py-10">
             <ContactForm />
           </div>
         </div>
@@ -98,7 +98,7 @@ export default function ContactPage() {
                   <a
                     href={href}
                     {...(external && { target: "_blank", rel: "noopener noreferrer" })}
-                    className="block rounded-[10px] p-4 transition-colors hover:bg-black/[0.03]"
+                    className="block rounded-[10px] p-4 transition-colors hover:bg-brand-mist/40"
                   >
                     {body}
                   </a>
@@ -111,7 +111,7 @@ export default function ContactPage() {
         </ul>
         <p className="mt-10 text-center text-[15px]">
           Ready to book?{" "}
-          <a href={siteConfig.bookingHref} target="_blank" rel="noopener noreferrer" className="border-b border-current hover:text-brand-teal">
+          <a href={siteConfig.bookingHref} target="_blank" rel="noopener noreferrer" className="border-b border-current hover:text-brand-deep">
             Check class and treatment availability online
           </a>
         </p>
@@ -122,7 +122,7 @@ export default function ContactPage() {
             href={siteConfig.google.reviewHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-6 inline-flex rounded-full border border-black/20 px-7 py-3 text-[15px] font-medium transition-colors hover:border-black"
+            className="mt-6 inline-flex rounded-full border border-ink/20 px-7 py-3 text-[15px] font-medium transition-colors hover:border-ink"
           >
             Leave us a Google review
           </a>

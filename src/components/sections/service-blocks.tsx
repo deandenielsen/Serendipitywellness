@@ -66,7 +66,7 @@ function SplitFeature({
             alt={image.alt}
             distance={30}
             sizes="(min-width: 1024px) 42vw, 90vw"
-            className="aspect-square rounded-[10px] shadow-[0_30px_90px_rgba(0,0,0,0.16)]"
+            className="aspect-square rounded-[10px] shadow-[0_30px_90px_rgba(58,72,76,0.16)]"
           />
         </ScrollFloat>
       </div>
@@ -88,10 +88,10 @@ function CtaCard({
 }) {
   return (
     <section className="relative px-6 pb-20 pt-10 sm:px-10 lg:px-[3.2vw] lg:pb-[3vw]">
-      <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-1/2 bg-[#ebf0f9]" />
+      <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-1/2 bg-brand-mist" />
       <div className="relative overflow-hidden rounded-[10px] px-6 py-20 text-center text-white lg:py-[7vw]">
         <ParallaxImage src={image} alt="" distance={60} sizes="100vw" className="!absolute inset-0" />
-        <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-r from-brand-violet/85 to-brand-teal/85" />
+        <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-r from-hero/90 to-brand-deep/80" />
         <div className="relative">
           <SplitReveal
             as="h2"
@@ -120,7 +120,7 @@ function BookingButton({ className }: { className?: string }) {
       target="_blank"
       rel="noopener noreferrer"
       className={cn(
-        "group inline-flex items-center gap-4 rounded-full border border-black/20 px-7 py-3 text-[15px] font-medium transition-colors hover:border-black",
+        "group inline-flex items-center gap-4 rounded-full border border-ink/20 px-7 py-3 text-[15px] font-medium transition-colors hover:border-ink",
         className,
       )}
     >
@@ -178,7 +178,7 @@ function FaqList({ faqs, heading = "Frequently asked questions" }: { faqs: Faq[]
           <p className="script-heading text-[40px] lg:text-[3.2vw]">FAQ</p>
           <SplitReveal as="h2" text={heading} className="light-heading mt-1 text-[32px] lg:text-[2.4vw]" />
         </div>
-        <div className="divide-y divide-black/10 border-y border-black/10">
+        <div className="divide-y divide-black/10 border-y border-ink/10">
           {faqs.map((f) => (
             <details key={f.question} className="group py-6">
               <summary className="flex cursor-pointer list-none items-start justify-between gap-6 text-[18px] leading-[1.4] [&::-webkit-details-marker]:hidden lg:text-[1.3vw]">

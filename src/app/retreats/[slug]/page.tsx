@@ -70,7 +70,7 @@ export default async function RetreatPage({ params }: Props) {
         />
         <div
           aria-hidden="true"
-          className="absolute inset-0 bg-[linear-gradient(100deg,rgba(52,68,74,0.94)_0%,rgba(70,88,94,0.82)_42%,rgba(70,88,94,0.25)_100%)]"
+          className="absolute inset-0 bg-[linear-gradient(100deg,rgba(58,72,76,0.94)_0%,rgba(74,91,95,0.82)_42%,rgba(74,91,95,0.25)_100%)]"
         />
         <div className="relative w-full px-6 pb-16 pt-36 sm:px-10 lg:px-[8vw] lg:pb-[6vw]">
           <p className="text-[13px] font-medium uppercase tracking-[0.28em] text-white/85">{retreat.eyebrow}</p>
@@ -159,7 +159,7 @@ export default async function RetreatPage({ params }: Props) {
                       alt={img.alt}
                       distance={20}
                       sizes="(min-width: 1024px) 26vw, 45vw"
-                      className="aspect-[4/5] rounded-[10px] shadow-[0_24px_60px_rgba(52,68,74,0.18)]"
+                      className="aspect-[4/5] rounded-[10px] shadow-[0_24px_60px_rgba(58,72,76,0.18)]"
                     />
                   </ScrollFloat>
                 ))}

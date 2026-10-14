@@ -89,7 +89,7 @@ const sections: { id: string; heading: string; body: React.ReactNode }[] = [
         </p>
         <p>
           Analytics cookies are only set after you click &ldquo;Accept&rdquo; on our cookie banner. You can change your
-          choice at any time using <CookieSettingsLink className="border-b border-current hover:text-brand-teal" /> at
+          choice at any time using <CookieSettingsLink className="border-b border-current hover:text-brand-deep" /> at
           the bottom of every page, or by clearing cookies in your browser. You can also install Google&apos;s{" "}
           <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer">
             Analytics opt-out add-on
@@ -266,12 +266,12 @@ export default function PrivacyPolicyPage() {
             Africa&apos;s Protection of Personal Information Act (POPIA).
           </p>
 
-          <nav aria-label="Contents" className="mt-10 rounded-[10px] bg-black/[0.03] px-6 py-5">
+          <nav aria-label="Contents" className="mt-10 rounded-[10px] bg-brand-mist/40 px-6 py-5">
             <p className="text-[14px] font-medium uppercase tracking-[0.08em]">Contents</p>
             <ol className="mt-3 grid gap-1.5 text-[15px] sm:grid-cols-2">
               {sections.map((s) => (
                 <li key={s.id}>
-                  <a href={`#${s.id}`} className="hover:text-brand-teal">
+                  <a href={`#${s.id}`} className="hover:text-brand-deep">
                     {s.heading}
                   </a>
                 </li>
@@ -279,7 +279,7 @@ export default function PrivacyPolicyPage() {
             </ol>
           </nav>
 
-          <div className="mt-12 space-y-12 text-[16px] leading-[1.75] [&_a]:border-b [&_a]:border-current [&_a:hover]:text-brand-teal [&_li]:mt-2 [&_p+p]:mt-4 [&_p+ul]:mt-3 [&_ul+p]:mt-4 [&_ul]:list-disc [&_ul]:pl-6">
+          <div className="mt-12 space-y-12 text-[16px] leading-[1.75] [&_a]:border-b [&_a]:border-current [&_a:hover]:text-brand-deep [&_li]:mt-2 [&_p+p]:mt-4 [&_p+ul]:mt-3 [&_ul+p]:mt-4 [&_ul]:list-disc [&_ul]:pl-6">
             {sections.map((s) => (
               <section key={s.id} id={s.id} className="scroll-mt-28">
                 <h2 className="light-heading text-[28px] lg:text-[2vw]">{s.heading}</h2>

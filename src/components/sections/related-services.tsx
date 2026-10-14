@@ -30,7 +30,7 @@ function RelatedServices({ slugs }: { slugs: string[] }) {
               sizes="(min-width: 640px) 28vw, 90vw"
               className="aspect-[4/5] transition-transform duration-700 ease-out group-hover:scale-[1.04]"
             />
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent from-50% to-black/50" />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent from-50% to-hero/75" />
             <h3 className="script-heading absolute bottom-7 left-7 text-[22px] text-white">{s.name}</h3>
           </Link>
         ))}

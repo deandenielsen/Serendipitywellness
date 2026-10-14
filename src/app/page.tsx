@@ -39,7 +39,7 @@ export default function Home() {
         large={groupClass}
         small={seatedMeditation}
       >
-        <div className="mt-10 border-t border-black/10 pt-8 lg:mt-[2.4vw] lg:pt-[2vw]">
+        <div className="mt-10 border-t border-ink/10 pt-8 lg:mt-[2.4vw] lg:pt-[2vw]">
           <SplitReveal as="h4" text="Meet Kerry" className="script-heading text-[32px] lg:text-[2.2vw]" />
           <SplitReveal
             text={`Hi, I’m ${founder.name}, founder of Serendipity Wellness. I’m a 200hr qualified yoga teacher and 50hr qualified kids yoga teacher, and I specialise in therapeutic massage and reflexology. With ${founder.yearsExperience} years of experience and only five students per class, I can give everyone the attention they need, whatever their age or ability.`}
