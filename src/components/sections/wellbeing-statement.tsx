@@ -30,7 +30,7 @@ function WellbeingStatement() {
     <section className="px-6 pb-[12vw] pt-[6vw] text-center">
       <motion.h2
         ref={ref}
-        className="mx-auto max-w-[680px] text-[6vw] font-light leading-[1.4] tracking-[-0.03em] sm:text-[4vw] lg:max-w-[46vw] lg:text-[3vw]"
+        className="serif-heading mx-auto max-w-[680px] text-[7vw] leading-[1.3] sm:text-[4.4vw] lg:max-w-[46vw] lg:text-[3.3vw]"
         initial={reduceMotion ? false : { opacity: 0, y: 30 }}
         animate={inView ? { opacity: 1, y: 0 } : undefined}
         transition={{ duration: 1, ease: [0.2, 0.75, 0.25, 0.9] }}

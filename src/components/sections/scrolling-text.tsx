@@ -23,7 +23,7 @@ function ScrollingText({ text = "just breathe" }: { text?: string }) {
               {words.map((w, i) => (
                 <span
                   key={i}
-                  className="text-outline whitespace-nowrap pr-[0.3em] text-[15vw] font-light leading-none tracking-[-0.03em] lg:text-[11vw]"
+                  className="text-outline whitespace-nowrap pr-[0.3em] serif-heading text-[15vw] italic leading-none lg:text-[11vw]"
                 >
                   {w}
                 </span>

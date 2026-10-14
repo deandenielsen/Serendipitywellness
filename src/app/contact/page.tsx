@@ -65,7 +65,7 @@ export default function ContactPage() {
             immediate
             delay={0.4}
             text="I’d love to hear from you!"
-            className="mt-3 text-[36px] font-light leading-[1.2] tracking-[-0.02em] lg:text-[3.3vw]"
+            className="serif-heading mt-3 text-[44px] leading-[1.1] lg:text-[4vw]"
           />
           <p className="mt-3 text-[17px] tracking-[0.03em] opacity-90">
             Feel free to chat to me on WhatsApp, there in the bottom right corner…

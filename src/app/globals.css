@@ -32,6 +32,7 @@
   --font-sans: var(--font-public-sans);
   --font-script: var(--font-playball);
   --font-display: var(--font-urbanist);
+  --font-serif: var(--font-serif);
 
   --shadow-depth: 0 30px 90px rgba(58, 72, 76, 0.16);
 }
@@ -66,10 +67,17 @@ body {
   line-height: 1.2;
 }
 
-.light-heading {
-  font-weight: 300;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
+/*
+ * Headings: Instrument Serif, the tall editorial serif from the brand flyers. It runs small
+ * for its size, so font-size-adjust lifts it to roughly the size the layout was tuned for.
+ */
+.light-heading,
+.serif-heading {
+  font-family: var(--font-serif), Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.005em;
+  line-height: 1.05;
+  font-size-adjust: 0.56;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -96,7 +104,7 @@ body {
   --retreat-paper: var(--color-page);
 }
 .retreat-serif {
-  font-family: var(--font-retreat-serif), Georgia, serif;
+  font-family: var(--font-serif), Georgia, serif;
   font-weight: 400;
   letter-spacing: -0.01em;
 }

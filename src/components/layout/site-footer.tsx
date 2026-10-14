@@ -24,7 +24,7 @@ function SiteFooter() {
           <SplitReveal
             as="h2"
             text="Start your wellness journey today!"
-            className="max-w-[340px] font-display text-[26px] font-semibold leading-[1.1] tracking-[-0.03em] lg:text-[30px]"
+            className="serif-heading max-w-[340px] text-[32px] leading-[1.1] lg:text-[38px]"
           />
           <WaveButton href="/contact/" label="Contact Us" className="mt-[35px]" />
         </div>

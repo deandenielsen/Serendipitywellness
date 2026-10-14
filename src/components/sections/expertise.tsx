@@ -154,7 +154,7 @@ function Expertise() {
                   className="pointer-events-none aspect-[390/575] transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                 />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent from-55% to-hero/70" />
-                <h4 className="script-heading absolute bottom-7 left-7 text-[22px] text-white lg:bottom-[2.6vw] lg:left-[2vw]">
+                <h4 className="serif-heading absolute bottom-7 left-7 text-[28px] text-white lg:bottom-[2.6vw] lg:left-[2vw]">
                   {area.label}
                 </h4>
               </Link>
