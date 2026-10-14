@@ -43,11 +43,13 @@ export type Service = {
   cta: { text: string; image: string; href?: string; label?: string };
   faqs: Faq[];
   related: string[];
+  /** Hidden services aren't built, linked or listed anywhere (see next.config.ts for the redirect). */
+  hidden?: boolean;
 };
 
 const S = "/images/services";
 
-export const services: Service[] = [
+const allServices: Service[] = [
   {
     slug: "yoga",
     name: "Yoga",
@@ -463,9 +465,12 @@ export const services: Service[] = [
           "Check availability and book online at booking.serendipitywellness.co.za, or contact us on WhatsApp or by phone on +27 79 085 6100.",
       },
     ],
-    related: ["lymphatic-drainage-massage", "reflexology", "mindfulness-meditation"],
+    related: ["reflexology", "mindfulness-meditation", "yoga"],
   },
   {
+    // Hidden while Kerry completes her training. To publish: remove `hidden`, the redirect in
+    // next.config.ts, and re-add it to the nav, Expertise carousel, related cards and llms.txt.
+    hidden: true,
     slug: "lymphatic-drainage-massage",
     name: "Lymphatic Drainage",
     title: "Lymphatic Drainage",
@@ -651,9 +656,12 @@ export const services: Service[] = [
           "Serendipity Wellness offers reflexology in its quiet, home-based studio in Edgemead, in the Northern Suburbs of Cape Town. Book online at booking.serendipitywellness.co.za, or contact us on WhatsApp or by phone on +27 79 085 6100.",
       },
     ],
-    related: ["therapeutic-massage", "lymphatic-drainage-massage", "mindfulness-meditation"],
+    related: ["therapeutic-massage", "mindfulness-meditation", "yoga"],
   },
 ];
+
+/** Published services only. */
+export const services = allServices.filter((s) => !s.hidden);
 
 export function getService(slug: string) {
   return services.find((s) => s.slug === slug);
