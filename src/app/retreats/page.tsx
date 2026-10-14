@@ -1,10 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, MapPin, MessageCircle } from "lucide-react";
+import { ArrowRight, MapPin } from "lucide-react";
 import { isFullyBooked, upcomingRetreats } from "@/content/retreats";
 import { SplitReveal } from "@/components/motion/split-reveal";
 import { JsonLd } from "@/components/seo/json-ld";
-import { siteConfig } from "@/lib/site-config";
+import { NotifyForm } from "@/components/retreats/notify-form";
 import { absoluteUrl, breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
 const PATH = "/retreats/";
@@ -139,22 +139,21 @@ export default function RetreatsPage() {
                 </li>
               ))}
             </ul>
-          ) : (
-            <div className="mt-8 rounded-[14px] bg-[var(--retreat-mist)] px-6 py-12 text-center">
-              <p className="retreat-serif text-[40px] leading-none">New dates coming soon</p>
-              <p className="mx-auto mt-4 max-w-[480px] text-[16px] leading-[1.7]">
-                We&apos;re planning our next retreats. Message us on WhatsApp to be the first to hear when bookings open.
-              </p>
-              <a
-                href={siteConfig.contact.whatsappHref}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-7 inline-flex items-center gap-2.5 rounded-[12px] bg-[var(--retreat-slate)] px-6 py-4 text-[16px] font-medium text-white hover:bg-[var(--retreat-slate-dark)]"
-              >
-                <MessageCircle size={19} /> Keep me posted
-              </a>
-            </div>
-          )}
+          ) : null}
+
+          {/* Sign-up for news of future retreats (saved as a Resend contact with consent). */}
+          <div className="mt-12 rounded-[18px] bg-[var(--retreat-mist)] px-6 py-12 text-center sm:px-12 lg:mt-[4vw] lg:py-[4vw]">
+            <SplitReveal
+              as="h2"
+              text={upcoming.length > 0 ? "Be the first to hear about new retreats" : "New dates coming soon"}
+              className="retreat-serif text-[44px] leading-[1.05] lg:text-[3.6vw]"
+            />
+            <p className="mx-auto mt-5 max-w-[520px] text-[16px] leading-[1.7]">
+              We plan just a handful of retreats each year and places go quickly. Leave your details and we&apos;ll let
+              you know as soon as the next one opens.
+            </p>
+            <NotifyForm retreatName="Retreats page" />
+          </div>
         </section>
       </div>
     </>
