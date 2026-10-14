@@ -46,7 +46,7 @@ function PageHero({
           delay={0.7}
           stagger={0.035}
           text={title}
-          className="script-heading block text-[52px] leading-[1.15] md:text-[5.2vw]"
+          className="serif-heading block text-[60px] leading-[1.05] md:text-[6vw]"
         />
         <motion.a
           href={`#${nextId}`}

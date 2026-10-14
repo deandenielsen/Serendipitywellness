@@ -47,8 +47,8 @@ function Heading({ eyebrow, script, light }: { eyebrow?: string; script: string;
   return (
     <>
       {eyebrow && <p className="text-[18px] lg:text-[1.3vw]">{eyebrow}</p>}
-      <SplitReveal as="h2" text={script} className="script-heading text-[44px] lg:text-[3.6vw]" />
-      {light && <SplitReveal as="p" text={light} delay={0.1} className="light-heading mt-1 text-[32px] lg:text-[2.6vw]" />}
+      <SplitReveal as="h2" text={script} className="serif-heading text-[44px] lg:text-[3.4vw]" />
+      {light && <SplitReveal as="p" text={light} delay={0.1} className="light-heading mt-1 text-[32px] italic lg:text-[2.6vw]" />}
     </>
   );
 }
@@ -119,7 +119,7 @@ export default function SchedulePage() {
                   <th scope="row" className="light-heading py-4 pr-6 text-left text-[28px] lg:text-[2.2vw]">
                     {row.day}
                   </th>
-                  <td className="py-4 text-[20px] font-light tracking-[-0.02em] lg:text-[1.6vw]">
+                  <td className="serif-heading py-4 text-[24px] lg:text-[1.9vw]">
                     {row.times.join(" & ")}
                   </td>
                 </tr>
@@ -147,7 +147,7 @@ export default function SchedulePage() {
           Packages can be rolled over for 1 month, and all cancellations need to be made 24 hours before the class to
           avoid losing a class.
         </p>
-        <h3 className="script-heading mt-10 text-[28px]">Private Classes</h3>
+        <h3 className="serif-heading mt-10 text-[30px]">Private Classes</h3>
         <p className="mt-2 text-[15px] leading-[1.7]">
           Private one-on-one classes can be arranged in studio, or in the comfort of your own home, starting from R
           {privateClassesFrom} per class.

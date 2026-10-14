@@ -47,7 +47,7 @@ function Hero() {
           as="p"
           delay={0.95}
           text="Just Breathe"
-          className="script-heading my-[0.15em] block text-[64px] leading-[1.1] md:text-[8vw]"
+          className="serif-heading my-[0.12em] block text-[76px] leading-[1] md:text-[9vw]"
         />
         <SplitReveal
           as="h1"

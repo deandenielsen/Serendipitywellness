@@ -51,7 +51,7 @@ function SplitFeature({
         )}
       >
         <div className={cn("lg:w-1/2", imageSide === "right" ? "lg:pl-[4.5vw]" : "lg:pr-[3vw]")}>
-          <SplitReveal as={headingAs} text={heading} className="script-heading text-[44px] lg:text-[3.6vw]" />
+          <SplitReveal as={headingAs} text={heading} className="serif-heading text-[44px] lg:text-[3.4vw]" />
           <div className="mt-5 space-y-[1.1em] text-[15px] leading-[1.7] lg:text-[1.05vw]">
             {paragraphs.map((p, i) => (
               <SplitReveal key={i} text={p} delay={0.1 + i * 0.08} lineStagger={0.05} duration={0.8} />
@@ -96,7 +96,7 @@ function CtaCard({
           <SplitReveal
             as="h2"
             text={text}
-            className="mx-auto max-w-[17em] text-[28px] font-light leading-[1.25] tracking-[-0.02em] lg:text-[2.4vw]"
+            className="serif-heading mx-auto max-w-[17em] text-[32px] leading-[1.2] lg:text-[2.8vw]"
           />
           <Link
             prefetch={false}
@@ -144,7 +144,7 @@ function PriceList({ items }: { items: { label: string; price: number }[] }) {
           {items.map((item) => (
             <div key={item.label} className="flex items-baseline justify-between py-5 lg:max-w-[440px]">
               <dt className="light-heading text-[32px] lg:text-[2.4vw]">{item.label}</dt>
-              <dd className="text-[22px] font-light lg:text-[1.6vw]">R{item.price}</dd>
+              <dd className="serif-heading text-[26px] lg:text-[2vw]">R{item.price}</dd>
             </div>
           ))}
         </dl>

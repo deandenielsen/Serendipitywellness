@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Playball, Public_Sans, Urbanist } from "next/font/google";
+import { Instrument_Serif, Playball, Public_Sans, Urbanist } from "next/font/google";
 import { siteConfig } from "@/lib/site-config";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
@@ -23,6 +23,14 @@ const playball = Playball({
   variable: "--font-playball",
   subsets: ["latin"],
   weight: "400",
+  display: "swap",
+});
+
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-serif",
+  subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
   display: "swap",
 });
 
@@ -81,7 +89,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${publicSans.variable} ${playball.variable} ${urbanist.variable} antialiased`}
+      className={`${publicSans.variable} ${playball.variable} ${urbanist.variable} ${instrumentSerif.variable} antialiased`}
     >
       <body className="flex min-h-full flex-col bg-page text-ink">
         <JsonLd data={businessJsonLd()} />
