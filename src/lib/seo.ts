@@ -1,4 +1,4 @@
-import type { Retreat } from "@/content/retreats";
+import { isFullyBooked, type Retreat } from "@/content/retreats";
 import type { Metadata } from "next";
 import { siteConfig } from "@/lib/site-config";
 
@@ -170,16 +170,19 @@ export function retreatEventJsonLd(retreat: Retreat) {
         addressRegion: "Western Cape",
         addressCountry: "ZA",
       },
-      geo: { "@type": "GeoCoordinates", latitude: retreat.venue.lat, longitude: retreat.venue.lng },
+      ...(retreat.venue.lat !== undefined &&
+        retreat.venue.lng !== undefined && {
+          geo: { "@type": "GeoCoordinates", latitude: retreat.venue.lat, longitude: retreat.venue.lng },
+        }),
     },
-    offers: {
+    offers: (retreat.price.options ?? [{ label: retreat.price.note, amount: retreat.price.amount }]).map((option) => ({
       "@type": "Offer",
       url,
-      price: retreat.price.amount,
+      name: option.label,
+      price: option.amount,
       priceCurrency: "ZAR",
-      availability: "https://schema.org/InStock",
-      description: retreat.price.note,
-    },
+      availability: isFullyBooked(retreat) ? "https://schema.org/SoldOut" : "https://schema.org/InStock",
+    })),
     organizer: { "@id": BUSINESS_ID },
     performer: { "@id": FOUNDER_ID },
   };

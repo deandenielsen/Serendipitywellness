@@ -1,12 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, MapPin, MessageCircle } from "lucide-react";
-import { upcomingRetreats } from "@/content/retreats";
+import { isFullyBooked, upcomingRetreats } from "@/content/retreats";
 import { SplitReveal } from "@/components/motion/split-reveal";
 import { JsonLd } from "@/components/seo/json-ld";
 import { siteConfig } from "@/lib/site-config";
 import { absoluteUrl, breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
-import { cn } from "@/lib/utils";
 
 const PATH = "/retreats/";
 
@@ -63,34 +62,36 @@ export default function RetreatsPage() {
           </h2>
 
           {upcoming.length > 0 ? (
-            <ul className="mt-8 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
-              {upcoming.map((r, i) => (
-                // The next retreat gets a wide, featured card.
-                <li key={r.slug} className={cn(i === 0 && "md:col-span-2 xl:col-span-3")}>
+            // Wide cards stacked soonest-first; the list stays short, so each retreat gets room.
+            <ul className="mt-8 grid gap-8">
+              {upcoming.map((r) => (
+                <li key={r.slug}>
                   <Link
                     prefetch={false}
                     href={`/retreats/${r.slug}/`}
-                    className={cn(
-                      "group block h-full overflow-hidden rounded-[14px] bg-white shadow-[0_20px_50px_rgba(58,72,76,0.10)] transition-shadow duration-500 hover:shadow-[0_28px_70px_rgba(58,72,76,0.18)]",
-                      i === 0 && "md:grid md:grid-cols-[1.15fr_1fr]",
-                    )}
+                    className="group block h-full overflow-hidden rounded-[14px] bg-white shadow-[0_20px_50px_rgba(58,72,76,0.10)] transition-shadow duration-500 hover:shadow-[0_28px_70px_rgba(58,72,76,0.18)] md:grid md:grid-cols-[1.15fr_1fr]"
                   >
-                    <div className={cn("relative aspect-[4/3] overflow-hidden", i === 0 && "md:aspect-auto md:min-h-[420px]")}>
+                    <div className="relative aspect-[4/3] overflow-hidden md:aspect-auto md:min-h-[420px]">
                       <Image
                         src={r.hero.src}
                         alt={r.hero.alt}
                         fill
-                        sizes={i === 0 ? "(min-width: 768px) 50vw, 90vw" : "(min-width: 1280px) 28vw, (min-width: 768px) 42vw, 90vw"}
+                        sizes="(min-width: 768px) 50vw, 90vw"
                         className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                         style={r.hero.position ? { objectPosition: r.hero.position } : undefined}
                       />
                       <p className="absolute left-4 top-4 rounded-full bg-white/95 px-4 py-1.5 text-[13px] font-medium">
                         {r.when.short}
                       </p>
+                      {isFullyBooked(r) && (
+                        <p className="absolute right-4 top-4 rounded-full bg-[var(--retreat-slate-dark)] px-4 py-1.5 text-[13px] font-semibold uppercase tracking-[0.12em] text-white">
+                          Fully booked
+                        </p>
+                      )}
                     </div>
-                    <div className={cn("p-6 lg:p-7", i === 0 && "md:flex md:flex-col md:justify-center lg:p-12")}>
+                    <div className="p-6 md:flex md:flex-col md:justify-center lg:p-12">
                       <p className="text-[12px] font-medium uppercase tracking-[0.2em] text-[var(--retreat-slate)]">{r.eyebrow}</p>
-                      <h3 className={cn("retreat-serif mt-3 text-[34px] leading-[1.05]", i === 0 && "lg:text-[52px]")}>
+                      <h3 className="retreat-serif mt-3 text-[34px] leading-[1.05] lg:text-[52px]">
                         {r.headline[0]} <em>{r.headline[1]}</em>
                       </h3>
                       <p className="mt-4 flex items-center gap-2 text-[15px] text-[var(--retreat-slate)]">
@@ -100,7 +101,9 @@ export default function RetreatsPage() {
                         {r.when.long} · {r.time.short}
                       </p>
                       <div className="mt-6 flex items-center justify-between border-t border-[var(--retreat-sage)]/40 pt-5">
-                        <p className="retreat-serif text-[30px] leading-none">R{r.price.amount.toLocaleString("en-ZA")}</p>
+                        <p className="retreat-serif text-[30px] leading-none">
+                          {r.price.options && <span className="text-[20px]">From </span>}R{r.price.amount.toLocaleString("en-ZA")}
+                        </p>
                         <span className="inline-flex items-center gap-2 text-[15px] font-medium">
                           View retreat
                           <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
