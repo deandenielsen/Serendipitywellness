@@ -234,7 +234,10 @@ function TodoWidget() {
       >
         {open ? <X size={20} /> : <ListTodo size={20} />}
         {!open && remaining > 0 && (
-          <span className="absolute -right-1 -top-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-brand-teal px-1 text-[11px] font-semibold">
+          <span
+            aria-hidden="true"
+            className="absolute -right-1 -top-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-[#11707d] px-1 text-[11px] font-semibold"
+          >
             {remaining}
           </span>
         )}

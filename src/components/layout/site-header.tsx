@@ -45,7 +45,7 @@ function SiteHeader() {
     >
       <div
         className={cn(
-          "flex items-center justify-between px-6 transition-[height] duration-500 lg:px-9 xl:grid xl:grid-cols-[minmax(max-content,1fr)_auto_minmax(max-content,1fr)] xl:gap-x-10",
+          "flex items-center justify-between px-6 transition-[height] duration-500 lg:px-9 min-[1360px]:grid min-[1360px]:grid-cols-[minmax(max-content,1fr)_auto_minmax(max-content,1fr)] min-[1360px]:gap-x-10",
           scrolled ? "h-[72px] lg:h-[90px]" : "h-[80px] lg:h-[128px]",
         )}
       >
@@ -69,7 +69,7 @@ function SiteHeader() {
         </Link>
 
         <nav
-          className="hidden items-center gap-7 whitespace-nowrap text-[14px] font-medium xl:flex min-[1600px]:gap-9 min-[1600px]:text-base"
+          className="hidden items-center gap-7 whitespace-nowrap text-[14px] font-medium min-[1360px]:flex min-[1600px]:gap-9 min-[1600px]:text-base"
           aria-label="Primary"
         >
           {siteConfig.nav.map((item) =>
@@ -104,7 +104,7 @@ function SiteHeader() {
         </nav>
 
         {/* Right-hand menu: social links, schedule and contact. */}
-        <div className="hidden items-center gap-5 justify-self-end whitespace-nowrap text-[14px] font-medium xl:flex min-[1600px]:gap-8 min-[1600px]:text-base">
+        <div className="hidden items-center gap-5 justify-self-end whitespace-nowrap text-[14px] font-medium min-[1360px]:flex min-[1600px]:gap-8 min-[1600px]:text-base">
           <div className="flex items-center gap-4">
             <a href={siteConfig.social.facebook} aria-label="Facebook" target="_blank" rel="noopener noreferrer" className="opacity-90 hover:opacity-100">
               <FacebookIcon className="h-[14px] w-[14px]" />
@@ -122,7 +122,7 @@ function SiteHeader() {
 
         <button
           type="button"
-          className="inline-flex h-11 w-11 items-center justify-center xl:hidden"
+          className="inline-flex h-11 w-11 items-center justify-center min-[1360px]:hidden"
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
@@ -139,7 +139,7 @@ function SiteHeader() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.35, ease: "easeInOut" }}
-            className="overflow-hidden bg-white text-ink xl:hidden"
+            className="overflow-hidden bg-white text-ink min-[1360px]:hidden"
           >
             <div className="flex flex-col px-6 pb-8 pt-2 text-lg font-medium">
               {siteConfig.nav.flatMap((item) => item.children ?? [item]).map((item) => (

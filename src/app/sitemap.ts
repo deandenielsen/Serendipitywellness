@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/site-config";
 import { services } from "@/content/services";
+import { retreats } from "@/content/retreats";
 
 /** Image entries help pages show up in Google Images. */
 const img = (path: string) => `${siteConfig.url}${path}`;
@@ -29,6 +30,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
       images: [img("/images/services/schedule-hero.jpeg")],
     },
+    { url: `${siteConfig.url}/retreats/`, lastModified, changeFrequency: "weekly", priority: 0.8 },
+    ...retreats.map((r) => ({
+      url: `${siteConfig.url}/retreats/${r.slug}/`,
+      lastModified,
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
+      images: [img(r.hero.src), ...r.gallery.map((g) => img(g.src))],
+    })),
     { url: `${siteConfig.url}/contact/`, lastModified, changeFrequency: "yearly", priority: 0.7 },
     { url: `${siteConfig.url}/privacy-policy/`, lastModified, changeFrequency: "yearly", priority: 0.3 },
   ];

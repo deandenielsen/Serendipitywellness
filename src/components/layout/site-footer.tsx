@@ -10,7 +10,7 @@ function SiteFooter() {
   // Every service page plus the timetable, linked from every page.
   const services = [
     ...siteConfig.nav.flatMap((item) => item.children ?? [item]),
-    siteConfig.secondaryNav[0],
+    ...siteConfig.secondaryNav.filter((item) => item.href !== "/contact/"),
   ];
 
   return (

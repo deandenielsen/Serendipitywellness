@@ -1,3 +1,4 @@
+import type { Retreat } from "@/content/retreats";
 import type { Metadata } from "next";
 import { siteConfig } from "@/lib/site-config";
 
@@ -142,5 +143,45 @@ export function faqJsonLd(faqs: { question: string; answer: string }[]) {
       name: f.question,
       acceptedAnswer: { "@type": "Answer", text: f.answer },
     })),
+  };
+}
+
+/** schema.org Event for a retreat: eligible for Google's event results. */
+export function retreatEventJsonLd(retreat: Retreat) {
+  const url = absoluteUrl(`/retreats/${retreat.slug}/`);
+  return {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "@id": `${url}#event`,
+    name: retreat.name,
+    description: retreat.seoDescription,
+    url,
+    image: [absoluteUrl(retreat.hero.src), ...retreat.gallery.map((g) => absoluteUrl(g.src))],
+    startDate: retreat.start,
+    endDate: retreat.end,
+    eventStatus: "https://schema.org/EventScheduled",
+    eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+    location: {
+      "@type": "Place",
+      name: retreat.venue.name,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: retreat.venue.street,
+        addressLocality: `${retreat.venue.area}, ${retreat.venue.city}`,
+        addressRegion: "Western Cape",
+        addressCountry: "ZA",
+      },
+      geo: { "@type": "GeoCoordinates", latitude: retreat.venue.lat, longitude: retreat.venue.lng },
+    },
+    offers: {
+      "@type": "Offer",
+      url,
+      price: retreat.price.amount,
+      priceCurrency: "ZAR",
+      availability: "https://schema.org/InStock",
+      description: retreat.price.note,
+    },
+    organizer: { "@id": BUSINESS_ID },
+    performer: { "@id": FOUNDER_ID },
   };
 }
