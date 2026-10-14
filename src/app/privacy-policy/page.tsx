@@ -5,8 +5,8 @@ import { siteConfig } from "@/lib/site-config";
 import { BUSINESS_ID, absoluteUrl, breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
 const PATH = "/privacy-policy/";
-const LAST_UPDATED = "12 October 2026";
-const LAST_UPDATED_ISO = "2026-10-12";
+const LAST_UPDATED = "15 October 2026";
+const LAST_UPDATED_ISO = "2026-10-15";
 
 export const metadata = pageMetadata({
   title: "Privacy Policy | Serendipity Wellness",
@@ -49,6 +49,11 @@ const sections: { id: string; heading: string; body: React.ReactNode }[] = [
         <ul>
           <li>
             <strong>Contact form:</strong> your name, email address, mobile number and any message you choose to send.
+          </li>
+          <li>
+            <strong>Retreat and studio updates:</strong> your name and email address, and a record of your consent, if
+            you sign up to hear about future retreats, classes and offers. We only email you if you&apos;ve ticked the
+            consent box, every email has an unsubscribe link, and you can ask us to remove you at any time.
           </li>
           <li>
             <strong>WhatsApp, phone and email:</strong> your name, number or address, and what you tell us when you get
@@ -136,7 +141,8 @@ const sections: { id: string; heading: string; body: React.ReactNode }[] = [
             <strong>Vercel</strong>, which hosts this website;
           </li>
           <li>
-            <strong>Resend</strong>, which delivers contact form messages to our inbox;
+            <strong>Resend</strong>, which delivers contact form messages to our inbox and stores the mailing list for
+            our updates;
           </li>
           <li>
             <strong>Google</strong>, which provides Google Analytics if you accept analytics cookies;
