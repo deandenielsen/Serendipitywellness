@@ -5,8 +5,8 @@ import { siteConfig } from "@/lib/site-config";
 import { BUSINESS_ID, absoluteUrl, breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
 const PATH = "/privacy-policy/";
-const LAST_UPDATED = "12 October 2026";
-const LAST_UPDATED_ISO = "2026-10-12";
+const LAST_UPDATED = "15 October 2026";
+const LAST_UPDATED_ISO = "2026-10-15";
 
 export const metadata = pageMetadata({
   title: "Privacy Policy | Serendipity Wellness",
@@ -49,6 +49,10 @@ const sections: { id: string; heading: string; body: React.ReactNode }[] = [
         <ul>
           <li>
             <strong>Contact form:</strong> your name, email address, mobile number and any message you choose to send.
+          </li>
+          <li>
+            <strong>Retreat updates:</strong> your name and email address if you ask us to let you know about future
+            retreats. We use them only for that, and you can ask us to remove you at any time.
           </li>
           <li>
             <strong>WhatsApp, phone and email:</strong> your name, number or address, and what you tell us when you get
