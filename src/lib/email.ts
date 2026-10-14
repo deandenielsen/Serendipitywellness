@@ -56,3 +56,40 @@ export async function sendStudioEmail({
     return false;
   }
 }
+
+/**
+ * Saves someone to the Resend contacts list (for Broadcasts later). Needs a Resend API key with
+ * full access; if RESEND_SEGMENT_ID is set, the contact is also added to that segment.
+ * Returns false (and logs why) on failure, so callers can still fall back to the email copy.
+ */
+export async function saveMarketingContact({ email, name }: { email: string; name: string }): Promise<boolean> {
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) {
+    console.error("Contacts: RESEND_API_KEY is not set");
+    return false;
+  }
+  const [firstName, ...rest] = name.split(/\s+/);
+  const segmentId = process.env.RESEND_SEGMENT_ID;
+
+  try {
+    const res = await fetch("https://api.resend.com/contacts", {
+      method: "POST",
+      headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email,
+        first_name: firstName,
+        ...(rest.length > 0 && { last_name: rest.join(" ") }),
+        unsubscribed: false,
+        ...(segmentId && { segments: [{ id: segmentId }] }),
+      }),
+    });
+    if (!res.ok) {
+      console.error("Contacts: Resend responded", res.status, await res.text());
+      return false;
+    }
+    return true;
+  } catch (err) {
+    console.error("Contacts: request to Resend failed", err);
+    return false;
+  }
+}
