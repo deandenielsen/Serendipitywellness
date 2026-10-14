@@ -1,3 +1,9 @@
+import { retreats } from "@/content/retreats";
+
+// While there's only one retreat the menu goes straight to it; once more are added, to the list.
+// (Based on the content rather than today's date so the server and browser always agree.)
+const retreatsHref = retreats.length === 1 ? `/retreats/${retreats[0].slug}/` : "/retreats/";
+
 export type NavItem = {
   label: string;
   href: string;
@@ -57,6 +63,7 @@ export const siteConfig = {
     { label: "Mindfulness & Meditation", href: "/mindfulness-meditation/" },
   ] as readonly NavItem[],
   secondaryNav: [
+    { label: "Retreats", href: retreatsHref },
     { label: "Schedule and Packages", href: "/schedule-and-packages/" },
     { label: "Contact", href: "/contact/" },
   ],

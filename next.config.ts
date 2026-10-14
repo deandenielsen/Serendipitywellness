@@ -11,8 +11,6 @@ const nextConfig: NextConfig = {
       // Old Yoast sitemap URLs that Google has on record.
       { source: "/sitemap_index.xml", destination: "/sitemap.xml", permanent: true },
       { source: "/page-sitemap.xml", destination: "/sitemap.xml", permanent: true },
-      // Retreats page is on hold until the next retreat is announced; temporary so Google keeps the URL.
-      { source: "/retreats/", destination: "/contact/", permanent: false },
     ];
   },
 };

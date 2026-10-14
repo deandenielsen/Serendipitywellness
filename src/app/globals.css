@@ -80,3 +80,17 @@ body {
     transform: translateX(-50%);
   }
 }
+
+/* Retreat pages: palette and serif from the retreat flyers. */
+.retreat-theme {
+  --retreat-slate: #46585e;
+  --retreat-slate-dark: #34444a;
+  --retreat-mist: #cfe6e9;
+  --retreat-sage: #8db3b8;
+  --retreat-paper: #f6f7f7;
+}
+.retreat-serif {
+  font-family: var(--font-retreat-serif), Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
