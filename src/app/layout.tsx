@@ -54,7 +54,6 @@ export const metadata: Metadata = {
     "wellness",
     "mental wellbeing",
     "therapeutic massage",
-    "lymphatic drainage massage",
     "reflexology",
     "yoga classes",
     "Cape Town",

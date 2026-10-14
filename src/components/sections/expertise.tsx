@@ -11,7 +11,6 @@ import { cn } from "@/lib/utils";
 const AREAS = [
   { label: "Yoga", src: "/images/Yoga.jpg", href: "/yoga/" },
   { label: "Therapeutic Massage", src: "/images/Therapeutic-Massage.jpg", href: "/therapeutic-massage/" },
-  { label: "Lymphatic Drainage", src: "/images/services/lymphatic-drainage-neck-massage.jpg", href: "/lymphatic-drainage-massage/" },
   { label: "Reflexology", src: "/images/services/foot-reflexology-edgemead.jpg", href: "/reflexology/" },
 ];
 

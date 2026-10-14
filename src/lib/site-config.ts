@@ -20,7 +20,7 @@ export const siteConfig = {
   },
   tagline: "Yoga, Massage & Mindfulness in Edgemead, Cape Town",
   description:
-    "Small-group yoga (max 5 per class), therapeutic massage, lymphatic drainage, reflexology and mindfulness in a calm home studio in Edgemead, Cape Town.",
+    "Small-group yoga (max 5 per class), therapeutic massage, reflexology and mindfulness in a calm home studio in Edgemead, Cape Town.",
   url: "https://serendipitywellness.co.za",
   locale: "en_ZA",
   location: {
@@ -57,7 +57,6 @@ export const siteConfig = {
         { label: "Pre & Post Natal Yoga", href: "/pre-post-natal-yoga/" },
       ],
     },
-    { label: "Lymphatic Drainage", href: "/lymphatic-drainage-massage/" },
     { label: "Therapeutic Massage", href: "/therapeutic-massage/" },
     { label: "Reflexology", href: "/reflexology/" },
     { label: "Mindfulness & Meditation", href: "/mindfulness-meditation/" },

@@ -21,13 +21,13 @@ const HIDDEN_ON_HOSTS = ["serendipitywellness.co.za", "www.serendipitywellness.c
 
 const STARTER: string[] = [
   "Send opening hours for Google / Maps",
-  "Kerry to read Lymphatic Drainage & Reflexology FAQs and “What to expect”",
+  "Kerry to read Reflexology FAQs and “What to expect”",
   "Vercel → Domains: add serendipitywellness.co.za and www",
   "Update DNS at registrar (keep MX, Resend and booking. records)",
   "Search Console: verify domain, submit sitemap, request indexing",
   "Bing Webmaster Tools: import from Search Console",
   "Ask Claude for the final check on the live domain",
-  "Google Business Profile: add Lymphatic Drainage & Reflexology, prices, photos",
+  "Google Business Profile: add Reflexology, prices, photos",
   "Real photos of Kerry and the studio",
   "Collect 4–6 testimonials",
   "Retreats page (when the next retreat is planned)",
