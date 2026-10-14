@@ -12,11 +12,17 @@ const PATH = "/retreats/";
 // Rebuild daily so finished retreats drop off the list on their own.
 export const revalidate = 86400;
 
+const HERO = {
+  src: "/images/retreats/cape-mountains-yoga-retreat.jpg",
+  alt: "Yoga mats and a meditation cushion on a deck overlooking misty mountains in the Western Cape",
+};
+
 export const metadata = pageMetadata({
-  title: "Wellness Retreats in Cape Town | Serendipity Wellness",
+  title: "Yoga & Wellness Retreats in Cape Town & the Western Cape",
   description:
-    "Upcoming yoga and wellness retreats with Serendipity Wellness in Cape Town: half-day and day retreats with yoga, sound baths, mindful talks and good food. See dates, venues and prices.",
+    "Upcoming yoga and wellness retreats with Serendipity Wellness: half-day retreats in Cape Town and weekend retreats in the Western Cape mountains, with yoga, sound baths, good food and time to rest. See dates, venues and prices.",
   path: PATH,
+  image: HERO.src,
 });
 
 export default function RetreatsPage() {
@@ -45,15 +51,34 @@ export default function RetreatsPage() {
       />
 
       <div className="bg-[var(--retreat-paper)] text-[var(--retreat-slate-dark)]">
-        <section className="bg-[var(--retreat-slate-dark)] px-6 pb-16 pt-40 text-white sm:px-10 lg:px-[8vw] lg:pb-[5vw] lg:pt-[13vw]">
-          <p className="text-[13px] font-medium uppercase tracking-[0.28em] text-white/80">Serendipity Wellness</p>
-          <h1 className="retreat-serif mt-5 text-[72px] leading-[0.95] sm:text-[96px] lg:text-[8vw]">
-            <SplitReveal as="span" immediate delay={0.5} text="Retreats" className="block" />
-          </h1>
-          <p className="mt-6 max-w-[620px] text-[17px] leading-[1.65] text-white/90 lg:text-[19px]">
-            Step away from everyday life for a few hours or a whole day. Our retreats bring together yoga, deep rest,
-            mindful talks, good food and good company in beautiful, peaceful venues around Cape Town.
-          </p>
+        <section className="relative flex min-h-[600px] items-end overflow-hidden bg-[var(--retreat-slate-dark)] text-white lg:min-h-[max(640px,72svh)]">
+          <Image
+            src={HERO.src}
+            alt={HERO.alt}
+            fill
+            priority
+            fetchPriority="high"
+            sizes="100vw"
+            className="object-cover"
+            // On narrow screens keep the mountains and the mats in view.
+            style={{ objectPosition: "72% center" }}
+          />
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 bg-[linear-gradient(100deg,rgba(58,72,76,0.92)_0%,rgba(74,91,95,0.72)_40%,rgba(74,91,95,0.15)_100%)]"
+          />
+          {/* Soft fade along the top so the menu stays readable over the bright peaks. */}
+          <div aria-hidden="true" className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-hero/60 to-transparent" />
+          <div className="relative w-full px-6 pb-16 pt-40 sm:px-10 lg:px-[8vw] lg:pb-[5vw]">
+            <p className="text-[13px] font-medium uppercase tracking-[0.28em] text-white/80">Serendipity Wellness</p>
+            <h1 className="retreat-serif mt-5 text-[72px] leading-[0.95] sm:text-[96px] lg:text-[8vw]">
+              <SplitReveal as="span" immediate delay={0.5} text="Retreats" className="block" />
+            </h1>
+            <p className="mt-6 max-w-[620px] text-[17px] leading-[1.65] text-white/90 lg:text-[19px]">
+              Step away from everyday life for a morning or a whole weekend. Our retreats bring together yoga, deep rest,
+              mindful talks, good food and good company in beautiful, peaceful venues around Cape Town and the Western Cape.
+            </p>
+          </div>
         </section>
 
         <section aria-labelledby="upcoming-heading" className="px-6 py-16 sm:px-10 lg:px-[8vw] lg:py-[5vw]">
