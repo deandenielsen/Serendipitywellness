@@ -64,9 +64,11 @@ function SplitReveal({
       <span className="sr-only">{text}</span>
       {words.map((word, i) => (
         <span key={i} aria-hidden="true">
+          {/* The mask is padded (and pulled back with negative margins, so layout doesn't change)
+              so script swashes and descenders aren't clipped. */}
           <span
             data-word
-            className="-mb-[0.12em] inline-block overflow-hidden pb-[0.12em] align-bottom"
+            className="-mx-[0.2em] -mb-[0.2em] -mt-[0.15em] inline-block overflow-hidden px-[0.2em] pb-[0.2em] pt-[0.15em] align-bottom"
           >
             <motion.span
               className="inline-block will-change-transform"
@@ -106,7 +108,7 @@ function LetterReveal({
       <span className="sr-only">{text}</span>
       {text.split(" ").map((word, w, all) => (
         <span key={w} aria-hidden="true">
-          <span className="-mb-[0.2em] inline-block overflow-hidden pb-[0.2em] pr-[0.08em] align-bottom">
+          <span className="-mx-[0.2em] -mb-[0.2em] -mt-[0.15em] inline-block overflow-hidden px-[0.2em] pb-[0.2em] pt-[0.15em] align-bottom">
             {[...word].map((ch) => {
               const d = delay + index++ * stagger;
               return (
