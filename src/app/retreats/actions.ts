@@ -11,6 +11,9 @@ export type NotifyState =
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+/** Resend segment for retreat news; RESEND_SEGMENT_ID in Vercel overrides it. */
+const RETREATS_SEGMENT_ID = process.env.RESEND_SEGMENT_ID || "7a180626-227f-48ab-8a30-ec2b05b1da30";
+
 /**
  * "Let me know about future retreats": saves the person as a Resend contact (for marketing
  * Broadcasts) and emails the studio a copy with the consent record.
@@ -32,7 +35,7 @@ export async function requestRetreatUpdates(_prev: NotifyState, formData: FormDa
   }
 
   // Save first so the studio's copy can say whether it reached the contacts list.
-  const saved = await saveMarketingContact({ email, name });
+  const saved = await saveMarketingContact({ email, name, segmentId: RETREATS_SEGMENT_ID });
   const emailed = await sendStudioEmail({
     subject: `Retreat updates sign-up: ${name}`,
     heading: "New sign-up for retreat updates",
