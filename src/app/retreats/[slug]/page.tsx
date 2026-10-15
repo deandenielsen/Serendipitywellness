@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, CalendarPlus, ExternalLink, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import { ArrowLeft, CalendarPlus, ExternalLink, Mail, MapPin, Phone } from "lucide-react";
 import { getRetreat, isFullyBooked, retreats } from "@/content/retreats";
 import { SplitReveal } from "@/components/motion/split-reveal";
 import { ParallaxImage, ScrollFloat } from "@/components/motion/parallax";
@@ -254,25 +254,9 @@ export default async function RetreatPage({ params }: Props) {
             ) : (
               <>
                 <p className="mx-auto mt-5 max-w-[520px] text-[16px] leading-[1.7]">
-                  Message us on WhatsApp to reserve your spot, or get in touch with any questions about the day.
+                  Message us on WhatsApp to reserve your spot, or with any questions about the day.
                 </p>
-                <div className="mx-auto mt-8 flex max-w-[560px] flex-col gap-3 sm:flex-row">
-                  <a
-                    href={whatsapp}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex flex-1 items-center justify-center gap-2.5 rounded-[12px] bg-[var(--retreat-slate)] px-6 py-4 text-[16px] font-medium text-white transition-colors hover:bg-[var(--retreat-slate-dark)]"
-                  >
-                    <MessageCircle size={19} /> Reserve on WhatsApp
-                  </a>
-                  <Link
-                    prefetch={false}
-                    href="/contact/"
-                    className="flex flex-1 items-center justify-center gap-2.5 rounded-[12px] border border-[var(--retreat-slate)]/40 px-6 py-4 text-[16px] font-medium transition-colors hover:border-[var(--retreat-slate)]"
-                  >
-                    <Mail size={18} /> Send us a message
-                  </Link>
-                </div>
+                <NotifyForm retreatName={retreat.name} continueTo={whatsapp} />
                 <p className="mt-7 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[15px]">
                   <a href={siteConfig.contact.phoneHref} className="inline-flex items-center gap-1.5 hover:opacity-70">
                     <Phone size={15} /> {siteConfig.contact.phone}
