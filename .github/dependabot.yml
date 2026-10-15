@@ -1,0 +1,24 @@
+# Dependabot checks for updates every Monday and opens a pull request for each one.
+# Each pull request gets its own Vercel preview (staging) link to test before merging;
+# nothing goes live until the pull request is merged into main.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "07:00"
+      timezone: Africa/Johannesburg
+    assignees:
+      - deandenielsen
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: deps
+    groups:
+      # Bug and security fixes arrive together in one pull request.
+      minor-and-patch:
+        update-types:
+          - minor
+          - patch
+    # Major versions (e.g. Next.js 16) still get their own pull request, one per package.
