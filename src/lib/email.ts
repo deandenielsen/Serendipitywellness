@@ -58,34 +58,51 @@ export async function sendStudioEmail({
 }
 
 /**
- * Saves someone to the Resend contacts list (for Broadcasts later). Needs a Resend API key with
- * full access; if RESEND_SEGMENT_ID is set, the contact is also added to that segment.
- * Returns false (and logs why) on failure, so callers can still fall back to the email copy.
+ * Saves someone to the Resend contacts list (for Broadcasts later) and, if given, adds them to a
+ * segment. Needs a Resend API key with full access. Someone who's already a contact is still
+ * added to the segment. Returns false (and logs why) if the contact couldn't be saved, so callers
+ * can fall back to the email copy.
  */
-export async function saveMarketingContact({ email, name }: { email: string; name: string }): Promise<boolean> {
+export async function saveMarketingContact({
+  email,
+  name,
+  segmentId,
+}: {
+  email: string;
+  name: string;
+  segmentId?: string;
+}): Promise<boolean> {
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
     console.error("Contacts: RESEND_API_KEY is not set");
     return false;
   }
+  const headers = { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" };
   const [firstName, ...rest] = name.split(/\s+/);
-  const segmentId = process.env.RESEND_SEGMENT_ID;
 
   try {
     const res = await fetch("https://api.resend.com/contacts", {
       method: "POST",
-      headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
+      headers,
       body: JSON.stringify({
         email,
         first_name: firstName,
         ...(rest.length > 0 && { last_name: rest.join(" ") }),
         unsubscribed: false,
-        ...(segmentId && { segments: [{ id: segmentId }] }),
       }),
     });
-    if (!res.ok) {
+    // 409/422: already a contact, which is fine; they still get added to the segment below.
+    if (!res.ok && res.status !== 409 && res.status !== 422) {
       console.error("Contacts: Resend responded", res.status, await res.text());
       return false;
+    }
+
+    if (segmentId) {
+      const seg = await fetch(
+        `https://api.resend.com/contacts/${encodeURIComponent(email)}/segments/${segmentId}`,
+        { method: "POST", headers },
+      );
+      if (!seg.ok) console.error("Contacts: adding to segment failed", seg.status, await seg.text());
     }
     return true;
   } catch (err) {
