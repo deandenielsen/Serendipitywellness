@@ -111,7 +111,7 @@ function TodoWidget() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 12, scale: 0.98 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className="fixed bottom-[170px] right-4 z-50 flex max-h-[min(70vh,560px)] w-[calc(100vw-32px)] max-w-[380px] origin-bottom-right flex-col overflow-hidden rounded-[10px] bg-white text-ink shadow-[0_20px_60px_rgba(58,72,76,0.25)] sm:right-[30px]"
+            className="fixed bottom-[126px] right-4 z-50 flex max-h-[min(70vh,560px)] w-[calc(100vw-32px)] max-w-[380px] origin-bottom-right flex-col overflow-hidden rounded-[10px] bg-white text-ink shadow-[0_20px_60px_rgba(58,72,76,0.25)] sm:right-[30px]"
           >
             <header className="flex items-center justify-between border-b border-ink/10 px-5 py-4">
               <div>
@@ -230,7 +230,7 @@ function TodoWidget() {
         aria-label={open ? "Close to-do list" : `Open to-do list (${remaining} left)`}
         aria-expanded={open}
         onClick={() => setOpen((v) => !v)}
-        className="fixed bottom-[100px] right-[34px] z-50 flex h-[48px] w-[48px] items-center justify-center rounded-full bg-ink text-white shadow-[0_4px_12px_rgba(58,72,76,0.2)] transition-transform duration-300 hover:scale-105"
+        className="fixed bottom-[74px] right-[24px] z-50 flex h-[40px] w-[40px] items-center justify-center rounded-full bg-ink text-white shadow-[0_4px_12px_rgba(58,72,76,0.2)] transition-transform duration-300 hover:scale-105"
       >
         {open ? <X size={20} /> : <ListTodo size={20} />}
         {!open && remaining > 0 && (
