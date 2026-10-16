@@ -35,8 +35,10 @@ const massageStudio = {
   src: "/images/massage-studio-edgemead.jpg",
   alt: "Massage table with towels in the Serendipity Wellness massage studio in Edgemead, Cape Town",
 };
-// Stock photo, until a second photo of the massage studio is taken.
-const seatedMeditation = { src: "/images/Serendipity-Wellness-About.jpg", alt: "Yoga teacher seated in meditation" };
+const massageCloseUp = {
+  src: "/images/therapeutic-massage-edgemead.jpg",
+  alt: "Client relaxing face-down on the massage table during a therapeutic massage in Edgemead, Cape Town",
+};
 
 export default function Home() {
   return (
@@ -84,8 +86,8 @@ export default function Home() {
         paragraphs={[
           "The massage studio is a quiet space that has been created for you to enjoy your therapeutic treatments in a space of peace & tranquillity.",
         ]}
-        large={massageStudio}
-        small={seatedMeditation}
+        large={massageCloseUp}
+        small={massageStudio}
       />
 
       <WellbeingStatement />

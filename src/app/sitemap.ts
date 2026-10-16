@@ -21,6 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         img("/images/kerry-nielsen-savasana-edgemead-yoga-studio.jpg"),
         img("/images/serendipity-wellness-studio-edgemead.jpg"),
         img("/images/massage-studio-edgemead.jpg"),
+        img("/images/therapeutic-massage-edgemead.jpg"),
       ],
     },
     ...services.map((s) => ({
