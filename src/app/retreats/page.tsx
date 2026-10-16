@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, MapPin } from "lucide-react";
-import { isFullyBooked, upcomingRetreats } from "@/content/retreats";
+import { isFullyBooked, spotsLabel, upcomingRetreats } from "@/content/retreats";
 import { SplitReveal } from "@/components/motion/split-reveal";
 import { JsonLd } from "@/components/seo/json-ld";
 import { NotifyForm } from "@/components/retreats/notify-form";
@@ -111,6 +111,11 @@ export default function RetreatsPage() {
                       {isFullyBooked(r) && (
                         <p className="absolute right-4 top-4 rounded-full bg-[var(--retreat-slate-dark)] px-4 py-1.5 text-[13px] font-semibold uppercase tracking-[0.12em] text-white">
                           Fully booked
+                        </p>
+                      )}
+                      {spotsLabel(r) && (
+                        <p className="absolute right-4 top-4 rounded-full bg-[var(--retreat-slate-dark)] px-4 py-1.5 text-[13px] font-semibold text-white">
+                          Only {r.spots} spots
                         </p>
                       )}
                     </div>
