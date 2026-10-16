@@ -14,7 +14,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: "monthly",
       priority: 1,
-      images: [img("/images/Serendipity-Wellness-Landing-Image.jpeg"), img("/images/Serendipity-Wellness-About-Us.jpg")],
+      images: [
+        img("/images/Serendipity-Wellness-Landing-Image.jpeg"),
+        img("/images/kerry-nielsen-yoga-teacher-edgemead.jpg"),
+        img("/images/yoga-studio-edgemead.jpg"),
+        img("/images/kerry-nielsen-savasana-edgemead-yoga-studio.jpg"),
+        img("/images/serendipity-wellness-studio-edgemead.jpg"),
+        img("/images/massage-studio-edgemead.jpg"),
+      ],
     },
     ...services.map((s) => ({
       url: `${siteConfig.url}/${s.slug}/`,

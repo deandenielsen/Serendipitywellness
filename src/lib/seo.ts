@@ -56,7 +56,7 @@ export function businessJsonLd() {
         description: siteConfig.description,
         url: siteConfig.url,
         logo: absoluteUrl("/images/brand/logo-stacked.png"),
-        image: absoluteUrl("/images/Serendipity-Wellness-About-Us.jpg"),
+        image: [absoluteUrl("/images/yoga-studio-edgemead.jpg"), absoluteUrl("/images/massage-studio-edgemead.jpg")],
         telephone: siteConfig.contact.phone,
         email: siteConfig.contact.email,
         founder: { "@id": FOUNDER_ID },
@@ -99,6 +99,7 @@ export function businessJsonLd() {
         "@id": FOUNDER_ID,
         name: siteConfig.founder.name,
         jobTitle: siteConfig.founder.jobTitle,
+        image: absoluteUrl("/images/kerry-nielsen-yoga-teacher-edgemead.jpg"),
         worksFor: { "@id": BUSINESS_ID },
         url: `${siteConfig.url}/#about`,
         hasCredential: siteConfig.founder.credentials.map((name) => ({
