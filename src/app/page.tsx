@@ -15,7 +15,27 @@ export const metadata: Metadata = {
   },
 };
 
-const groupClass = { src: "/images/Serendipity-Wellness-About-Us.jpg", alt: "Group yoga class resting in child's pose" };
+const kerry = {
+  src: "/images/kerry-nielsen-yoga-teacher-edgemead.jpg",
+  alt: "Kerry Nielsen, yoga teacher and therapist, seated in meditation in the Serendipity Wellness studio in Edgemead",
+};
+const studioSpace = {
+  src: "/images/serendipity-wellness-studio-edgemead.jpg",
+  alt: "Bright, calm room at the Serendipity Wellness home studio in Edgemead, Cape Town",
+};
+const yogaStudio = {
+  src: "/images/yoga-studio-edgemead.jpg",
+  alt: "The Serendipity Wellness yoga studio in Edgemead set up with mats for a small-group class",
+};
+const kerrySavasana = {
+  src: "/images/kerry-nielsen-savasana-edgemead-yoga-studio.jpg",
+  alt: "Kerry Nielsen resting in savasana on a yoga mat in the Edgemead yoga studio",
+};
+const massageStudio = {
+  src: "/images/massage-studio-edgemead.jpg",
+  alt: "Massage table with towels in the Serendipity Wellness massage studio in Edgemead, Cape Town",
+};
+// Stock photo, until a second photo of the massage studio is taken.
 const seatedMeditation = { src: "/images/Serendipity-Wellness-About.jpg", alt: "Yoga teacher seated in meditation" };
 
 export default function Home() {
@@ -33,8 +53,8 @@ export default function Home() {
           "In today’s busy world, it’s important to make time to reconnect, with ourselves and with the people who matter most.",
           "From yoga for all ages and abilities to meditation and therapeutic massage, we’re here to guide you.",
         ]}
-        large={groupClass}
-        small={seatedMeditation}
+        large={studioSpace}
+        small={kerry}
       />
 
       <Expertise />
@@ -49,8 +69,8 @@ export default function Home() {
           "Our yoga studio is a home based studio in the quiet suburb of Edgemead, Northern Suburbs, Cape Town.",
           "Our space can accommodate a max of 5 students per yoga class, allowing for a more personal experience.",
         ]}
-        large={groupClass}
-        small={{ src: "/images/Untitled-design.jpeg", alt: "Student resting in savasana on a yoga mat" }}
+        large={yogaStudio}
+        small={kerrySavasana}
       />
 
       <ScrollingText />
@@ -64,7 +84,7 @@ export default function Home() {
         paragraphs={[
           "The massage studio is a quiet space that has been created for you to enjoy your therapeutic treatments in a space of peace & tranquillity.",
         ]}
-        large={groupClass}
+        large={massageStudio}
         small={seatedMeditation}
       />
 
