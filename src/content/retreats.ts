@@ -17,6 +17,8 @@ export type Retreat = {
   seoTitle: string;
   seoDescription: string;
   status?: "fully-booked";
+  /** Total places, shown as "Only N spots available" while the retreat is still bookable. */
+  spots?: number;
   /**
    * ISO 8601 with the South African offset, e.g. 2026-12-12T08:30:00+02:00, or a plain date
    * (2026-11-06) for multi-day retreats without set times.
@@ -133,7 +135,8 @@ export const retreats: Retreat[] = [
       "Before the festive rush, give yourself one slow, nourishing morning to move, rest, eat well and reconnect.",
     seoTitle: "End of Year Wellness Retreat, Cape Town | Sat 12 Dec | R1100",
     seoDescription:
-      "Half-day wellness retreat at Vin Boho Guesthouse, Panorama, Cape Town on Saturday 12 December: yoga, a QRMA body scanning talk, brunch and a sound bath. R1100 per person, brunch included.",
+      "Half-day wellness retreat at Vin Boho Guesthouse, Panorama, Cape Town on Saturday 12 December: yoga, a QRMA body scanning talk, brunch and a sound bath. Only 15 spots, R1100 per person, brunch included.",
+    spots: 15,
     start: "2026-12-12T08:30:00+02:00",
     end: "2026-12-12T14:00:00+02:00",
     when: { short: "Sat 12 Dec", long: "Saturday, 12 December 2026" },
@@ -175,6 +178,10 @@ export const retreats: Retreat[] = [
 export const getRetreat = (slug: string) => retreats.find((r) => r.slug === slug);
 
 export const isFullyBooked = (r: Retreat) => r.status === "fully-booked";
+
+/** "Only 15 spots available", or undefined when there's no limit to show (or it's fully booked). */
+export const spotsLabel = (r: Retreat) =>
+  r.spots && !isFullyBooked(r) ? `Only ${r.spots} spots available` : undefined;
 
 /** Plain dates (no time) mean the retreat runs all day; it ends at the close of that day in SA. */
 export const isAllDay = (r: Retreat) => r.start.length === 10;

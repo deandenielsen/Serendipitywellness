@@ -161,6 +161,7 @@ export function retreatEventJsonLd(retreat: Retreat) {
     endDate: retreat.end,
     eventStatus: "https://schema.org/EventScheduled",
     eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+    ...(retreat.spots && { maximumAttendeeCapacity: retreat.spots }),
     location: {
       "@type": "Place",
       name: retreat.venue.name,

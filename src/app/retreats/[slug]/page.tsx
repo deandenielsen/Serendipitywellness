@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, CalendarPlus, ExternalLink, Mail, MapPin, Phone } from "lucide-react";
-import { getRetreat, isFullyBooked, retreats } from "@/content/retreats";
+import { getRetreat, isFullyBooked, retreats, spotsLabel } from "@/content/retreats";
 import { SplitReveal } from "@/components/motion/split-reveal";
 import { ParallaxImage, ScrollFloat } from "@/components/motion/parallax";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -43,6 +43,7 @@ export default async function RetreatPage({ params }: Props) {
   const { venue } = retreat;
   const whatsapp = `${siteConfig.contact.whatsappHref}?text=${encodeURIComponent(retreat.whatsappMessage)}`;
   const fullyBooked = isFullyBooked(retreat);
+  const spots = spotsLabel(retreat);
   const address = [venue.street, venue.area !== venue.city && venue.area, venue.city].filter(Boolean).join(", ");
   const destination =
     venue.lat !== undefined && venue.lng !== undefined ? `${venue.lat},${venue.lng}` : encodeURIComponent(`${venue.name}, ${address}`);
@@ -82,6 +83,11 @@ export default async function RetreatPage({ params }: Props) {
           {fullyBooked && (
             <p className="mb-5 inline-flex rounded-full bg-white px-4 py-1.5 text-[13px] font-semibold uppercase tracking-[0.14em] text-[var(--retreat-slate-dark)]">
               Fully booked
+            </p>
+          )}
+          {spots && (
+            <p className="mb-5 inline-flex rounded-full bg-white px-4 py-1.5 text-[13px] font-semibold uppercase tracking-[0.14em] text-[var(--retreat-slate-dark)]">
+              {spots}
             </p>
           )}
           <p className="text-[13px] font-medium uppercase tracking-[0.28em] text-white/85">{retreat.eyebrow}</p>
@@ -254,6 +260,7 @@ export default async function RetreatPage({ params }: Props) {
             ) : (
               <>
                 <p className="mx-auto mt-5 max-w-[520px] text-[16px] leading-[1.7]">
+                  {retreat.spots && <strong className="font-semibold">There are only {retreat.spots} spots available. </strong>}
                   Message us on WhatsApp to reserve your spot, or with any questions about the day.
                 </p>
                 <NotifyForm retreatName={retreat.name} continueTo={whatsapp} />
